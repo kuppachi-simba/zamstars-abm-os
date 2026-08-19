@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+
+# Client programmes never enter this repository.
+# Export them from the app and keep the JSON somewhere private.
+data/*.json
+!data/example.json

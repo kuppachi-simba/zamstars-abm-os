@@ -1,0 +1,9 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/index.html
+  Cache-Control: no-cache, must-revalidate

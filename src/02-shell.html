@@ -1,0 +1,92 @@
+<div id="app">
+
+  <!-- ==================== LEFT RAIL ==================== -->
+  <aside id="rail">
+    <div class="brandbar">
+      <span class="star" id="starmark"></span>
+      <div>
+        <div class="t1">ZAMSTARS</div>
+        <div class="t2">ABM OS</div>
+      </div>
+    </div>
+
+    <div class="railscroll">
+      <div class="railgroup">
+        <h4>Programme Build</h4>
+        <div id="nav-build"></div>
+      </div>
+      <div class="railgroup">
+        <h4>Run &amp; Track</h4>
+        <div id="nav-run"></div>
+      </div>
+      <div class="railgroup">
+        <h4>Reference</h4>
+        <div id="nav-ref"></div>
+      </div>
+    </div>
+
+    <div class="readiness">
+      <div class="rlab">Programme readiness</div>
+      <div class="rnum" id="readynum">0<small>%</small></div>
+      <div class="rbar"><i id="readybar" style="width:0%"></i></div>
+    </div>
+
+    <div class="railfoot">
+      <button id="btn-present" title="Toggle presenter notes">Presenter</button>
+      <button id="btn-export" title="Download this programme as JSON">Export</button>
+      <button id="btn-import" title="Load a programme JSON">Import</button>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN ==================== -->
+  <div id="main">
+
+    <div id="topbar">
+      <div class="clientpick">
+        <span class="clogo" id="clogo">iB</span>
+        <select id="clientsel" title="Switch client"></select>
+      </div>
+
+      <div class="urlwrap">
+        <input id="clienturl" placeholder="https://client-website.com" spellcheck="false">
+        <button id="btn-analyse">Analyse business</button>
+      </div>
+      <span class="beta">BETA</span>
+
+      <div class="spacer"></div>
+      <button class="tbtn" id="btn-newclient">+ New client</button>
+      <button class="tbtn" id="btn-reset" title="Reset this client to the shipped baseline">Reset</button>
+      <button class="tbtn pk" id="btn-next">Next stage &rsaquo;</button>
+    </div>
+
+    <div id="stagehead">
+      <div class="shrow">
+        <div class="shnum" id="shnum">1</div>
+        <div style="flex:1;min-width:0">
+          <h1 id="shtitle">Stage title</h1>
+          <p class="sub" id="shsub">Stage description</p>
+          <span class="vgtag vg-all" id="shvg">Value Grid</span>
+        </div>
+        <div class="keylegend">
+          <span class="kl kl-in"><i></i>You fill this in</span>
+          <span class="kl kl-calc"><i></i>We work this out</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas"><div class="wrap" id="stagebody"></div></div>
+
+    <div id="pfoot">
+      <button class="px" id="pclose">&times;</button>
+      <div class="pt" id="ptlabel">Say this in the room</div>
+      <div class="pc" id="pnotes"></div>
+    </div>
+  </div>
+</div>
+
+<div id="mask"><div class="modal" id="modal"></div></div>
+<div id="toast"></div>
+<input type="file" id="filein" accept=".json,application/json" style="display:none">
+
+<script>
+"use strict";

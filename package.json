@@ -1,0 +1,17 @@
+{
+  "name": "zamstars-abm-os",
+  "version": "1.0.0",
+  "description": "An account-based marketing operating system. Ten stages from executive summary to measurement, plus a live dashboard. One self-contained HTML file.",
+  "private": false,
+  "scripts": {
+    "build": "node build.js",
+    "test": "node build.js && node test/smoke.js",
+    "start": "node build.js && node -e \"console.log('Open dist/index.html in a browser.')\""
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  },
+  "keywords": ["abm", "account-based-marketing", "b2b", "gtm", "zamstars"],
+  "author": "ZAMSTARS",
+  "license": "SEE LICENSE IN LICENSE"
+}

@@ -1,0 +1,47 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install test dependencies
+        run: npm install
+
+      - name: Build and run checks
+        run: npm test
+
+      - name: Confirm only the demo programme is being published
+        run: |
+          # The shipped programme list must be exactly the demo and the blank one.
+          if ! grep -q "const SHIPPED = \[DEMO, BLANK\];" src/04-clients.js; then
+            echo "src/04-clients.js ships something other than the demo programme."
+            echo "Real client work belongs in an exported JSON file, not in this repo."
+            exit 1
+          fi
+          # Anything dropped into data/ must stay untracked.
+          if git ls-files --error-unmatch data/*.json 2>/dev/null; then
+            echo "A client programme has been committed to data/. Refusing to publish."
+            exit 1
+          fi
+          echo "Clean. Demo programme only."
+
+      - name: Publish to Cloudflare Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=zamstars-abm-os
