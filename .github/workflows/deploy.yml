@@ -38,8 +38,18 @@ jobs:
           fi
           echo "Clean. Demo programme only."
 
+      # Skipped unless the Cloudflare secrets are set, so this workflow stays
+      # green if you host somewhere else. Vercel deploys itself from vercel.json.
+      - name: Is Cloudflare configured
+        id: cf
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -n "$TOKEN" ]; then echo "ready=true" >> "$GITHUB_OUTPUT";
+          else echo "ready=false" >> "$GITHUB_OUTPUT"; echo "No Cloudflare token set, skipping the deploy step."; fi
+
       - name: Publish to Cloudflare Pages
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: steps.cf.outputs.ready == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
