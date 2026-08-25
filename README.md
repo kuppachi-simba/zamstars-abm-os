@@ -145,13 +145,20 @@ server.
 
 ## Deploying it
 
-The app is static, so anything that serves files will host it. See
-[docs/DEPLOY-TO-CLOUDFLARE.md](docs/DEPLOY-TO-CLOUDFLARE.md) for the full walkthrough,
-including how to put an email login in front of it with Cloudflare Access.
+The app is static, so anything that serves files will host it. It builds to
+`dist/`, and `dist/index.html` is the whole thing.
 
-The short version: push to `main` and the included GitHub Action publishes
-`dist/` to Cloudflare Pages. Two repository secrets are needed once,
-`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+- **Vercel** reads `vercel.json` and needs no configuration. See
+  [docs/DEPLOY-TO-VERCEL.md](docs/DEPLOY-TO-VERCEL.md).
+- **Cloudflare Pages** deploys on every push to `main` via the included GitHub
+  Action, once `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are set as
+  repository secrets. The step skips itself if they are not, so the workflow
+  stays green when you host elsewhere. See
+  [docs/DEPLOY-TO-CLOUDFLARE.md](docs/DEPLOY-TO-CLOUDFLARE.md).
+- **Anything else**: run `npm run build` and serve `dist/`.
+
+One thing to watch: `dist/_headers` is a Cloudflare file and `vercel.json` holds
+the same rules for Vercel. Change one, change both.
 
 **Before you point a client at a public URL**, remember that a `.pages.dev`
 address is readable by anyone who has it. If you are hosting a real programme
