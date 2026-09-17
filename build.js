@@ -15,7 +15,12 @@ const JS_PARTS = [
   '05-store.js',
   '06-stages-early.js',
   '07-stages-late.js',
-  '08-run-and-wiring.js'
+  '08-run-and-wiring.js',
+  '09-intel-framework.js',
+  '10-intel-store.js',
+  '11-intel-workspace.js',
+  '12-intel-actions.js',
+  '13-boot.js'
 ];
 
 function read(f) {

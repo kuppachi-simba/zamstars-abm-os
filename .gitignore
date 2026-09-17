@@ -6,3 +6,6 @@ node_modules/
 # Export them from the app and keep the JSON somewhere private.
 data/*.json
 !data/example.json
+
+# scratch render dumps
+_vis*.js

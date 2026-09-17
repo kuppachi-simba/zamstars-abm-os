@@ -138,7 +138,13 @@ const STAGES = [
     decide:'Is this light enough that the team will actually keep it up?',
     notes:'Log one entry live and flip back to the dashboard so they watch a number move. That closes the loop from strategy to evidence in about eight seconds, which is usually the moment somebody asks how much it costs.' },
 
-  { id:'method', n:13, group:'ref', nav:'Our Method', title:'Why we work in this order',
+  { id:'accintel', n:13, group:'run', nav:'Account Intelligence', title:'Research one account until you could argue its case',
+    vg:'acq',
+    sub:'The account list says who. This says why, on the evidence, one company at a time. Research areas by tier, findings that have to declare whether they are fact, inference or guess, the buying committee with its gaps showing, and the next three things worth doing.',
+    decide:'Could a colleague read this and run the account without us?',
+    notes:'Open the portfolio first and read the panel titled what is wrong with the book. Every ABM tool shows a client their coverage going up. This one shows them how much of their own research cannot be defended, which is the conversation nobody else is having. Then open an account and go to the research tab. The moment that lands is the fact, inference and hypothesis selector on every finding.' },
+
+  { id:'method', n:14, group:'ref', nav:'Our Method', title:'Why we work in this order',
     vg:'all',
     sub:'The thinking behind the sequence, how the tier money works, who does what, and the rules we hold ourselves to. Use this page if somebody challenges the method.',
     decide:'',

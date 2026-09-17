@@ -753,15 +753,3 @@ function bindOnce(){
     if(e.key==='m'||e.key==='M') go('method');
   });
 }
-
-/* ============================================================
-   27. BOOT
-   ============================================================ */
-(function boot(){
-  const restored = load();
-  bindOnce();
-  render();
-  if(!restored){
-    setTimeout(()=>toast('<b>ZAMSTARS ABM OS.</b> A worked example is loaded. <b>0</b> for the summary, <b>1</b> to <b>9</b> for the build stages, <b>D</b> for the dashboard, <b>P</b> for presenter notes.'),700);
-  }
-})();

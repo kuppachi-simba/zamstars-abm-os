@@ -2,9 +2,9 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
 
 jobs:
@@ -49,7 +49,7 @@ jobs:
           else echo "ready=false" >> "$GITHUB_OUTPUT"; echo "No Cloudflare token set, skipping the deploy step."; fi
 
       - name: Publish to Cloudflare Pages
-        if: steps.cf.outputs.ready == 'true' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: steps.cf.outputs.ready == 'true' && github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

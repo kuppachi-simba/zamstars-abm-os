@@ -362,6 +362,11 @@ function normalise(c){
   const legacyPlays = c.plays.some(p=>p.lock===undefined);
   c.plays.forEach(p=>{ if(p.lock==null) p.lock=false; if(p.budget==null) p.budget=0; });
   if(legacyPlays && c.plays.length) allocateBudget(c);
+  /* Account Intelligence fields. Declared in 10-intel-store.js, hoisted, and
+     safe to call from here: every field it adds is optional, so a programme
+     saved before that module existed opens with empty research rather than
+     an error. */
+  if(typeof normIntel==='function') normIntel(c);
 }
 function load(){
   let raw=null;

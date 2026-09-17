@@ -594,6 +594,76 @@ td.ta .ce{white-space:pre-wrap;min-height:22px}
   #canvas{overflow:visible;padding:0}
   body{overflow:visible}
 }
+
+/* ==================== ACCOUNT INTELLIGENCE ==================== */
+.iwhead{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.iwname h2{margin:0;font-size:20px;font-weight:750;letter-spacing:-.02em}
+.itabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:18px;overflow-x:auto}
+.itab{
+  background:none;border:0;padding:9px 14px;font-size:12.5px;font-weight:650;color:var(--ink3);
+  border-bottom:2px solid transparent;white-space:nowrap;border-radius:6px 6px 0 0}
+.itab:hover{color:var(--ink);background:var(--paper)}
+.itab.on{color:var(--pink);border-bottom-color:var(--pink)}
+
+.ibar{display:inline-block;width:100%;max-width:150px;height:5px;border-radius:3px;background:var(--line);overflow:hidden;vertical-align:middle}
+.ibar i{display:block;height:100%;border-radius:3px}
+.covbar{height:9px;border-radius:5px;background:var(--line);overflow:hidden}
+.covbar i{display:block;height:100%;border-radius:5px;transition:width .25s}
+
+.nba{border-left:3px solid var(--line);background:var(--paper);border-radius:0 8px 8px 0;padding:10px 13px;margin-bottom:8px}
+.nba:last-of-type{margin-bottom:0}
+
+.subsc{border-left:3px solid var(--line);background:var(--calc-bg);border-radius:0 9px 9px 0;padding:11px 13px}
+.subsc.weak{background:var(--pink-soft)}
+.subsc .k{font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);font-weight:800}
+.subsc .v{font-size:24px;font-weight:750;letter-spacing:-.03em;line-height:1.1;margin:2px 0 6px}
+.subsc .v small{font-size:12px;font-weight:600;opacity:.5}
+
+.card.area>header{gap:8px}
+.card.area.opt{opacity:.62}
+.card.area.opt:hover{opacity:1}
+.adot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+ul.asks{margin:0;padding-left:17px;font-size:11.5px;color:var(--ink3);line-height:1.55}
+ul.asks li{margin-bottom:2px}
+ol.asks{margin:0;padding-left:19px;font-size:12.5px;line-height:1.55}
+
+.findhead{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:15px 0 9px;padding-top:12px;border-top:1px dashed var(--line);font-size:12px}
+.finding{border-left:3px solid var(--line);background:var(--in-bg);border-radius:0 9px 9px 0;
+  padding:10px 12px;margin-bottom:9px}
+.finding .inp.b{font-weight:650}
+.fmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:7px}
+
+.rolegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:9px}
+.rolebox{border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--white)}
+.rolebox.has{background:var(--calc-bg)}
+.rolebox.gap{background:var(--pink-soft);border-style:dashed}
+.rolebox .rn{font-size:12px;font-weight:700;margin-bottom:2px}
+.rolebox .rs{font-size:11.5px;margin-top:6px;font-weight:600}
+
+.sfield{margin-bottom:2px}
+.sfield .sf-k{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:5px}
+.sfield.filled .sf-k{color:var(--teal)}
+
+.jladder{padding:4px 0}
+.jstep{display:flex;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line)}
+.jstep:last-child{border-bottom:0}
+.jstep.ahead{opacity:.5}
+.jstep.now{background:var(--calc-bg)}
+.jstep .jn{width:26px;height:26px;flex:0 0 auto;border-radius:50%;border:1.5px solid var(--line);
+  display:grid;place-items:center;font-size:12px;font-weight:750;color:var(--ink3)}
+.jstep .jbody{flex:1;min-width:0}
+.jgate{margin-top:8px;padding:9px 11px;background:var(--white);border:1px solid var(--calc-line);border-radius:8px}
+
+.tbl tr.subrow td{padding-top:0;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.tbl tr.subrow:hover{background:none}
+.inp.tiny{font-size:11px;padding:4px 6px}
+
+.card.brief .body h4{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);
+  margin:20px 0 6px;border-top:1px solid var(--line);padding-top:13px}
+.card.brief .body p{margin:0 0 4px;font-size:13px;line-height:1.55}
+
 </style>
 </head>
 <body>
@@ -829,7 +899,13 @@ const STAGES = [
     decide:'Is this light enough that the team will actually keep it up?',
     notes:'Log one entry live and flip back to the dashboard so they watch a number move. That closes the loop from strategy to evidence in about eight seconds, which is usually the moment somebody asks how much it costs.' },
 
-  { id:'method', n:13, group:'ref', nav:'Our Method', title:'Why we work in this order',
+  { id:'accintel', n:13, group:'run', nav:'Account Intelligence', title:'Research one account until you could argue its case',
+    vg:'acq',
+    sub:'The account list says who. This says why, on the evidence, one company at a time. Research areas by tier, findings that have to declare whether they are fact, inference or guess, the buying committee with its gaps showing, and the next three things worth doing.',
+    decide:'Could a colleague read this and run the account without us?',
+    notes:'Open the portfolio first and read the panel titled what is wrong with the book. Every ABM tool shows a client their coverage going up. This one shows them how much of their own research cannot be defended, which is the conversation nobody else is having. Then open an account and go to the research tab. The moment that lands is the fact, inference and hypothesis selector on every finding.' },
+
+  { id:'method', n:14, group:'ref', nav:'Our Method', title:'Why we work in this order',
     vg:'all',
     sub:'The thinking behind the sequence, how the tier money works, who does what, and the rules we hold ourselves to. Use this page if somebody challenges the method.',
     decide:'',
@@ -2017,6 +2093,11 @@ function normalise(c){
   const legacyPlays = c.plays.some(p=>p.lock===undefined);
   c.plays.forEach(p=>{ if(p.lock==null) p.lock=false; if(p.budget==null) p.budget=0; });
   if(legacyPlays && c.plays.length) allocateBudget(c);
+  /* Account Intelligence fields. Declared in 10-intel-store.js, hoisted, and
+     safe to call from here: every field it adds is optional, so a programme
+     saved before that module existed opens with empty research rather than
+     an error. */
+  if(typeof normIntel==='function') normIntel(c);
 }
 function load(){
   let raw=null;
@@ -4080,16 +4161,1526 @@ function bindOnce(){
 }
 
 /* ============================================================
-   27. BOOT
+   24. ACCOUNT INTELLIGENCE: THE TAXONOMIES
+
+   Everything in this file is method rather than data. Change it here
+   and every account in every programme picks the change up.
+
+   The rule the module is built around: a claim about a company is
+   either something we can show a source for, something we inferred
+   from other facts, or something we made up and want to test. The
+   data model refuses to let those three blur together.
+   ============================================================ */
+
+/* ---------- the fourteen research areas, from the brief ---------- */
+const RESEARCH_AREAS = [
+  { k:'ident',  n:'Company and structure',   c:C.violet, t1:1, t2:1, t3:1,
+    q:'Who exactly are we selling to, and what else do they own?',
+    ask:['Legal and trading names, verified domains','Headquarters and operating regions','Industry, sub industry, business model','Revenue and employee scale','Parent, subsidiaries and brands','Ownership and investors','Acquisitions and disposals','Financial year and budget cycle'] },
+
+  { k:'strat',  n:'Strategic priorities',    c:C.pink,   t1:1, t2:1, t3:0,
+    q:'What has leadership already committed to in public?',
+    ask:['Stated growth priorities','New markets and expansion','Transformation programmes','Customer or employee experience work','Efficiency and cost programmes','Sustainability commitments','Technology modernisation','The words leadership actually uses'] },
+
+  { k:'fin',    n:'Performance and capacity', c:C.gold,   t1:1, t2:0, t3:0,
+    q:'Can they fund this, and is the money loose or tight?',
+    ask:['Revenue and direction of travel','Margin pressure or profitability','Capital expenditure','Funding and investment events','Debt or restructuring signals','Cost control programmes','Ability to approve at the size we need'] },
+
+  { k:'prod',   n:'Products and customers',   c:C.teal,   t1:1, t2:1, t3:0,
+    q:'What do they sell, to whom, and what do they promise?',
+    ask:['Principal products and services','Main customer segments','The experience they promise','Geographic markets','Important partnerships','Premium or value positioning'] },
+
+  { k:'assets', n:'Properties and footprint', c:C.violet, t1:1, t2:1, t3:0,
+    q:'Which building do we start in? This is where the opportunity lives.',
+    ask:['Buildings, campuses, sites','Owned, leased, operated or managed','Number and distribution','Size and density','New build, refurbishment or handover','Architects, contractors, consultants','Owners, operators, facility managers','Connectivity sensitive areas','Evidence of coverage problems'] },
+
+  { k:'tech',   n:'Technology and vendors',   c:C.ink3,   t1:1, t2:0, t3:0,
+    q:'What is already installed, and who put it there?',
+    ask:['Relevant technology stack','Current infrastructure model','Known suppliers and partners','Network or connectivity strategy','Recent tenders and contracts','Renewal or replacement indicators','Security and compliance expectations','Signs of satisfaction or otherwise'] },
+
+  { k:'need',   n:'Problems and hypotheses',  c:C.pink,   t1:1, t2:1, t3:1,
+    q:'What is going wrong, and how sure are we?',
+    ask:['Problem statement','Who it affects','Business impact','What they do about it today','Cost of doing nothing','Which of our solutions applies','The question that would confirm it'] },
+
+  { k:'trig',   n:'Triggers and timing',      c:C.gold,   t1:1, t2:1, t3:1,
+    q:'Why would they act this quarter rather than next year?',
+    ask:['New sites or expansion','Renovation or redevelopment','Handover and launch dates','Acquisition or merger','New senior leadership','Funding or capital expenditure','Tender or RFP published','Contract expiry','Service incidents or complaints','Regulation or compliance deadline','Hiring patterns'] },
+
+  { k:'comp',   n:'Competitors and alternatives', c:C.ink, t1:1, t2:1, t3:0,
+    q:'Who is already there, and what would it take to displace them?',
+    ask:['Known incumbent','Other vendors in play','The do nothing option','Switching barriers','Incumbent strengths','Evidenced incumbent weaknesses','Our relevant difference','Proof needed to displace'] },
+
+  { k:'rel',    n:'Relationships and access',  c:C.teal,   t1:1, t2:1, t3:0,
+    q:'How do we get in the room without cold calling?',
+    ask:['Existing or past customer','Previous proposals, won and lost','Known relationships','Shared connections','Former colleagues now inside','Partner introduction paths','Events attended together','Unresolved objections','Last meaningful contact'] },
+
+  { k:'people', n:'The buying committee',      c:C.violet, t1:1, t2:1, t3:1,
+    q:'Who has to say yes, and who can stop it?',
+    ask:['Name, verified title, location','Buying role and seniority','What they are measured on','Influence and authority','Attitude toward us','Who owns the relationship','Permitted channel','Date last verified'] },
+
+  { k:'proc',   n:'How they buy',              c:C.ink3,   t1:1, t2:0, t3:0,
+    q:'What is the path from yes to signed?',
+    ask:['Typical purchasing process','Tender or approved vendor requirements','Budget owner','Technical approval','Security, legal and compliance review','Contracting entity','Procurement calendar','Decision criteria','Pilot or proof requirements','Who can stop it'] },
+
+  { k:'chan',   n:'Content and channels',      c:C.teal,   t1:1, t2:1, t3:1,
+    q:'Where do these people actually pay attention?',
+    ask:['Topics they discuss publicly','Events attended','Associations and communities','Publications followed','Formats that get engagement','Engagement with our own material','Preferred contact channel'] },
+
+  { k:'risk',   n:'Risks and reasons to stop', c:C.pink,   t1:1, t2:1, t3:1,
+    q:'What would make us walk away, and have we checked?',
+    ask:['Poor fit against the profile','Too small to be worth it','Geography we cannot serve','Exclusive incumbent contract','No capacity to deliver','Account or channel conflict','Legal or reputation concern','No realistic route in','No trigger at all','Duplicate account','Suppression or opt out'] }
+];
+const AREA = {}; RESEARCH_AREAS.forEach(a=>AREA[a.k]=a);
+
+/* Research area status. Deliberately includes "stale" and "needs checking",
+   because a research tool that only knows done and not done will quietly
+   present two year old facts as current. */
+const AREA_ST = [
+  ['none','Missing',        '#B9B8B6'],
+  ['part','Partly done',    C.gold],
+  ['chk', 'Needs checking', C.pink],
+  ['old', 'Stale',          '#8A6206'],
+  ['ok',  'Complete',       C.teal],
+  ['na',  'Not applicable', '#B9B8B6']
+];
+const AREA_ST_L={}, AREA_ST_C={}; AREA_ST.forEach(s=>{ AREA_ST_L[s[0]]=s[1]; AREA_ST_C[s[0]]=s[2]; });
+
+/* ---------- fact, inference, hypothesis ---------- */
+const FIND_KIND = [
+  ['fact','Fact',       'Direct evidence says so',                    C.teal],
+  ['inf', 'Inference',  'Several facts point this way',               C.violet],
+  ['hyp', 'Hypothesis', 'We think this and want to test it',          C.gold]
+];
+const KIND_L={}, KIND_C={}; FIND_KIND.forEach(k=>{ KIND_L[k[0]]=k[1]; KIND_C[k[0]]=k[3]; });
+
+const VERIFY = [
+  ['new','Not reviewed',    '#B9B8B6'],
+  ['ok', 'Verified',        C.teal],
+  ['chk','Needs confirming',C.gold],
+  ['old','Outdated',        '#8A6206'],
+  ['no', 'Rejected',        C.pink]
+];
+const VER_L={}, VER_C={}; VERIFY.forEach(v=>{ VER_L[v[0]]=v[1]; VER_C[v[0]]=v[2]; });
+
+const CONF = [['3','High'],['2','Medium'],['1','Low']];
+
+/* ---------- source quality, the five point hierarchy ---------- */
+const SRC_Q = [
+  ['5','Primary verified',    'Filing, official announcement, our own record', C.teal],
+  ['4','Quality secondary',   'Reputable journalism or recognised database',   C.violet],
+  ['3','Corroborated signal', 'Two or more credible indirect sources',         C.gold],
+  ['2','Single unverified',   'One indirect source, wants confirming',         '#8A6206'],
+  ['1','Hypothesis',          'Reasoning without direct confirmation',         C.pink]
+];
+const SRCQ_L={}, SRCQ_C={}; SRC_Q.forEach(s=>{ SRCQ_L[s[0]]=s[1]; SRCQ_C[s[0]]=s[3]; });
+
+const SRC_TYPE = [
+  ['site','Company website'],['filing','Filing or annual report'],['press','Press release'],
+  ['news','News or trade press'],['gov','Government or regulator'],['tender','Tender portal'],
+  ['db','Industry database'],['li','LinkedIn or Sales Navigator'],['event','Event or conference'],
+  ['crm','Our CRM or records'],['person','Conversation or interview'],['other','Other']
+];
+
+/* ---------- the ten buying roles ---------- */
+const BUY_ROLES = [
+  ['econ',  'Economic buyer',      'Holds the budget and carries the return',       C.pink,   1],
+  ['dec',   'Decision maker',      'Says yes or no on the recommendation',          C.pink,   1],
+  ['tech',  'Technical evaluator', 'Judges whether it works and fits',              C.violet, 1],
+  ['ops',   'Operational owner',   'Lives with it after we leave',                  C.teal,   1],
+  ['proc',  'Procurement or legal','Owns terms, price and the contract',            C.ink,    0],
+  ['champ', 'Champion',            'Sells it internally when we are not there',     '#0d7d70',1],
+  ['infl',  'Influencer',          'Shapes the view without holding the decision',  C.ink3,   0],
+  ['block', 'Blocker',             'Has a reason to stop it',                       '#8A6206',0],
+  ['user',  'End user',            'Feels the problem daily',                       C.gold,   0],
+  ['sponsor','Executive sponsor',  'Opens doors from the top',                      C.violet, 0]
+];
+const ROLE2_L={}, ROLE2_C={}, ROLE2_CORE={};
+BUY_ROLES.forEach(r=>{ ROLE2_L[r[0]]=r[1]; ROLE2_C[r[0]]=r[3]; ROLE2_CORE[r[0]]=r[4]; });
+/* The five marked core are the ones a Tier 1 account cannot progress without.
+   Everything else is useful rather than required, and the coverage score
+   says so rather than pretending all ten matter equally. */
+const CORE_ROLES = BUY_ROLES.filter(r=>r[4]).map(r=>r[0]);
+
+const SENIORITY = [['cxo','C level'],['vp','VP or director'],['head','Head of'],['mgr','Manager'],['ic','Individual']];
+const STRENGTH  = [['0','None'],['1','Cold'],['2','Aware of us'],['3','Warm'],['4','Trusted']];
+const LEVEL     = [['0','Unknown'],['1','Low'],['2','Medium'],['3','High']];
+const ATTITUDE  = [['','Unknown'],['pos','Positive'],['neu','Neutral'],['neg','Negative']];
+
+/* ---------- sites ---------- */
+const SITE_TYPE = [
+  ['office','Office'],['mixed','Mixed use'],['retail','Retail or mall'],['hotel','Hotel'],
+  ['hosp','Hospital'],['campus','Campus'],['ind','Industrial or warehouse'],
+  ['res','Residential'],['data','Data centre'],['other','Other']
+];
+const SITE_STATUS = [
+  ['plan','Planned',        C.ink3],
+  ['const','Under construction', C.gold],
+  ['fit','Fit out',         C.violet],
+  ['hand','Handover due',   C.pink],
+  ['live','Operating',      C.teal],
+  ['refurb','Refurbishment',C.violet]
+];
+const SITE_ST_L={}, SITE_ST_C={}; SITE_STATUS.forEach(s=>{ SITE_ST_L[s[0]]=s[1]; SITE_ST_C[s[0]]=s[2]; });
+const SITE_HOLD = [['own','Owned'],['lease','Leased'],['op','Operated'],['mgd','Managed'],['dev','Developing']];
+const SITE_OPP  = [['none','Not assessed'],['target','Target'],['survey','Survey requested'],['prop','Proposed'],['won','Won'],['lost','Lost']];
+
+/* ---------- triggers ---------- */
+const TRIG_TYPE = [
+  ['site','New site or property'],['expand','Expansion into a new city'],['refurb','Renovation or redevelopment'],
+  ['hand','Handover or launch date'],['ma','Acquisition or merger'],['leader','New senior leadership'],
+  ['fund','Funding or capital expenditure'],['tender','Tender or RFP published'],['expiry','Contract expiry'],
+  ['incident','Complaint or service incident'],['reg','Regulation or deadline'],['digital','Smart building or digital programme'],
+  ['hiring','Hiring pattern'],['compete','Competitor deployment'],['earn','Earnings call statement'],['engage','Engaged with our material']
+];
+const TRIG_STR = [['3','Strong'],['2','Moderate'],['1','Weak']];
+const TRIG_ST  = [['open','Open'],['acted','Acted on'],['expired','Expired'],['ignored','Deliberately ignored']];
+
+/* ---------- the account journey, stages 0 to 9 ----------
+   Contact activity rolls up but never moves the stage on its own.
+   A human moves it, and the gate says what should be true first. */
+const JSTAGES = [
+  { n:0, k:'cand',  nav:'Candidate',        c:'#B9B8B6',
+    d:'Somebody suggested this company. Nobody has checked it yet.',
+    gate:['Basic company facts recorded','A possible use case written down','A reviewer assigned'] },
+  { n:1, k:'qual',  nav:'Qualified target', c:C.ink3,
+    d:'It fits the profile and is worth real time.',
+    gate:['Tier agreed','Our solution mapped to their situation','No conflict or disqualifying reason'] },
+  { n:2, k:'res',   nav:'Researched',       c:C.violet,
+    d:'The research standard for its tier is met.',
+    gate:['Tier checklist complete','Account thesis written','Buying committee started','Risks and unknowns listed'] },
+  { n:3, k:'aware', nav:'Aware',            c:C.gold,
+    d:'Relevant people have seen something from us. Nothing has come back yet.',
+    gate:['At least one approved touch delivered','To a named person on the committee'] },
+  { n:4, k:'eng',   nav:'Engaged',          c:C.gold,
+    d:'One relevant person has done something meaningful.',
+    gate:['A substantive reply, an attendance, or repeated high value activity','From somebody on the committee, not a general enquiry'] },
+  { n:5, k:'multi', nav:'Multi threaded',   c:C.pink,
+    d:'Two or more of the committee are engaged, or a champion is opening doors.',
+    gate:['Two or more committee members engaged','Or one champion actively connecting others'] },
+  { n:6, k:'meet',  nav:'Meeting held',     c:C.pink,
+    d:'A real business or technical conversation has happened or is firmly booked.',
+    gate:['Attendees recorded','Problem discussed and captured','Timing and process understood','An agreed next step'] },
+  { n:7, k:'opp',   nav:'Validated opportunity', c:C.teal,
+    d:'Sales confirms a real problem, a fit, the people, the timing and the money.',
+    gate:['Sales owner has confirmed it','Value and timing estimated','Recorded in the CRM as the system of record'] },
+  { n:8, k:'eval',  nav:'Evaluation',       c:C.teal,
+    d:'They are assessing, piloting, or reading a proposal.',
+    gate:['Assessment, pilot or proposal in progress','Decision criteria known','Decision date estimated'] },
+  { n:9, k:'close', nav:'Closed',           c:C.ink,
+    d:'Won, lost, paused or moved to nurture. Reason recorded either way.',
+    gate:['Outcome reason recorded','Lessons written down for the next one'] }
+];
+const JS_BY_K={}; JSTAGES.forEach(s=>JS_BY_K[s.k]=s);
+
+const ACC_STATUS = [
+  ['active',  'Active',       C.teal],
+  ['pause',   'Paused',       C.gold],
+  ['nurture', 'Nurture',      C.violet],
+  ['disq',    'Disqualified', C.ink3]
+];
+const ACCST_L={}, ACCST_C={}; ACC_STATUS.forEach(s=>{ ACCST_L[s[0]]=s[1]; ACCST_C[s[0]]=s[2]; });
+
+const DISQ_REASONS = [
+  'Does not fit the profile','Too small to be worth the effort','Geography we cannot serve',
+  'Locked into an incumbent contract','We lack capacity to deliver','Account or channel conflict',
+  'Legal, compliance or reputation concern','No realistic route in','No trigger and no timeline',
+  'Duplicate of another account','Asked not to be contacted'
+];
+
+/* ---------- what each tier owes ----------
+   Research depth is the thing that should change between tiers.
+   Everything else follows from it. */
+const TIER_SPEC = {
+  t1:{ label:'Tier 1', mode:'One to one',  c:C.gold,   people:[5,10], vol:'5 to 15 accounts',
+       review:'Weekly', scan:'Weekly trigger scan, monthly full review',
+       must:['ident','strat','fin','prod','assets','tech','need','trig','comp','rel','people','proc','chan','risk'],
+       goal:'A strategic opportunity built account by account.' },
+  t2:{ label:'Tier 2', mode:'One to few',  c:C.violet, people:[3,6],  vol:'20 to 75 accounts',
+       review:'Fortnightly', scan:'Fortnightly trigger scan, quarterly full review',
+       must:['ident','strat','prod','assets','need','trig','comp','rel','people','chan','risk'],
+       goal:'Repeatable opportunities across a cluster that shares a problem.' },
+  t3:{ label:'Tier 3', mode:'One to many', c:C.teal,   people:[1,3],  vol:'75 accounts and up',
+       review:'Monthly', scan:'Monthly trigger scan, six monthly full review',
+       must:['ident','need','trig','people','chan','risk'],
+       goal:'Find the accounts worth promoting. Not to absorb budget.' }
+};
+
+/* ---------- the five sub scores ----------
+   Kept separate on purpose. A single blended number hides the fact that
+   a great account we cannot reach and a reachable account nobody needs
+   score the same. */
+const SUBSCORES = [
+  { k:'fit',   n:'Fit',          c:C.violet, q:'Should our client want this account at all?' },
+  { k:'timing',n:'Timing',       c:C.gold,   q:'Is there a reason to act this quarter?' },
+  { k:'intent',n:'Intent',       c:C.pink,   q:'Have they shown us anything?' },
+  { k:'cover', n:'Coverage',     c:C.teal,   q:'Do we know enough of the buying committee?' },
+  { k:'access',n:'Access',       c:'#8A6206',q:'Can we credibly get into the room?' }
+];
+
+/* ---------- next best action rules ----------
+   Every rule states its own reason. Nothing recommends an action it
+   cannot explain, and nothing is auto sent. */
+const NBA_RULES = [
+  { k:'disq',   urg:3, when:(m)=> m.a.status==='disq',
+    act:'Leave this account alone',
+    why:(m)=> 'Disqualified: '+(m.a.statusWhy||'no reason recorded')+'. Remove it from active reporting.' },
+
+  { k:'noowner',urg:3, when:(m)=> m.st>=1 && !m.a.owner,
+    act:'Give this account an owner',
+    why:()=> 'It has passed qualification with nobody accountable for it. Every later rule assumes an owner exists.' },
+
+  { k:'gap',    urg:3, when:(m)=> m.st>=2 && m.gaps.length>0 && m.tier!=='t3',
+    act:(m)=> 'Find the '+m.gaps.map(g=>ROLE2_L[g].toLowerCase()).join(' and the '),
+    why:(m)=> 'The committee is missing '+m.gaps.length+' of the '+CORE_ROLES.length+' roles that decide this. Reaching the ones we know will not move it.' },
+
+  { k:'trigcold',urg:3, when:(m)=> m.openTrig>0 && m.st<3,
+    act:'Open a conversation on the live trigger now',
+    why:(m)=> m.openTrig+' trigger'+(m.openTrig>1?'s are':' is')+' open and nobody has been contacted. Trigger windows close.' },
+
+  { k:'thesis', urg:2, when:(m)=> m.st>=2 && !(m.a.strategy&&m.a.strategy.thesis),
+    act:'Write the account thesis',
+    why:()=> 'Research is done but nobody has said in one sentence why this company should care. Outreach without it is a template.' },
+
+  { k:'unsourced',urg:2, when:(m)=> m.unsourced>=3,
+    act:'Put sources on the findings that have none',
+    why:(m)=> m.unsourced+' findings carry no source. Any of them could reach a buyer and none of them can be defended.' },
+
+  { k:'hypover',urg:2, when:(m)=> m.facts>0 && m.hyps > m.facts,
+    act:'Test the hypotheses or drop them',
+    why:(m)=> 'This account rests on '+m.hyps+' hypotheses against '+m.facts+' verified facts. It is a story, not a case.' },
+
+  { k:'stale',  urg:2, when:(m)=> m.stale>0,
+    act:'Refresh the stale research',
+    why:(m)=> m.stale+' area'+(m.stale>1?'s have':' has')+' gone stale for a '+TIER_SPEC[m.tier].label+' account on a '+TIER_SPEC[m.tier].review.toLowerCase()+' cadence.' },
+
+  { k:'single', urg:2, when:(m)=> m.st===4 && m.engaged<2,
+    act:'Bring in a second person before pushing further',
+    why:()=> 'One engaged contact is a relationship, not a deal. Single threaded accounts die when that person moves.' },
+
+  { k:'nostep', urg:3, when:(m)=> m.st===6 && !m.a.nextStep,
+    act:'Get the next step agreed in writing',
+    why:()=> 'A meeting happened and no next step was recorded. This is where accounts quietly stop.' },
+
+  { k:'nosite', urg:2, when:(m)=> m.st>=2 && m.sites===0,
+    act:'Name the first property to go after',
+    why:()=> 'No site is recorded. The opportunity is a building rather than a company, so the account cannot progress without one.' },
+
+  { k:'checklist',urg:1, when:(m)=> m.st>=1 && m.cover<60,
+    act:'Finish the tier research checklist',
+    why:(m)=> 'Research is '+m.cover+'% complete against the '+TIER_SPEC[m.tier].label+' standard.' },
+
+  { k:'noeng',  urg:1, when:(m)=> m.st===3 && m.touches>=4,
+    act:'Change the message or pause the account',
+    why:(m)=> m.touches+' touches have produced nothing. Sending a fifth version of the same idea will not work.' },
+
+  { k:'quiet',  urg:1, when:(m)=> m.st>=3 && m.st<7 && m.openTrig===0 && m.intent<3,
+    act:'Look for a fresh trigger',
+    why:()=> 'The account is in flight with no live trigger and little intent. Something has to justify the next call.' },
+
+  { k:'promote',urg:2, when:(m)=> m.tier==='t3' && m.intent>=6,
+    act:'Promote this account out of Tier 3',
+    why:()=> 'Tier 3 exists to find accounts worth more attention. This one is showing intent and is being treated as air cover.' },
+
+  { k:'exit',   urg:1, when:(m)=> m.a.strategy && m.a.strategy.exit && m.st>=3 && m.intent<2 && m.touches>=6,
+    act:'Check this against your own exit criteria',
+    why:(m)=> 'You wrote: '+String(m.a.strategy.exit).slice(0,90) }
+];
+
+const URG = { 3:['Now', C.pink], 2:['This week', C.gold], 1:['When you can', C.ink3] };
+
+/* ============================================================
+   25. ACCOUNT INTELLIGENCE: STATE, MIGRATION AND SCORING
+
+   Every field this module adds is optional and back filled here, so a
+   programme saved before the module existed opens without error and
+   simply shows empty research. Delete these source files and the app
+   returns to its previous behaviour with the data ignored, not lost.
+
+   Note on naming: an account already had a "stage", which is where the
+   buyer sits in the client's own customer journey. The ABM programme
+   stage is "jstage". They are different questions and they are kept
+   apart deliberately.
+   ============================================================ */
+
+const ISEL = { acct:null, tab:'over', q:'', filt:'' };
+
+function accIntel(a){
+  if(!a) return a;
+  if(!a.research) a.research = {};
+  ['sources','findings','sites','people','trigs','tierHist','jhist'].forEach(k=>{
+    if(!Array.isArray(a[k])) a[k] = [];
+  });
+  if(!a.strategy) a.strategy = { objective:'', thesis:'', whyNow:'', priority:'', value:'',
+    champion:'', access:'', proof:'', offer:'', obstacles:'', success:'', exit:'', questions:[] };
+  if(!Array.isArray(a.strategy.questions)) a.strategy.questions = [];
+  if(a.jstage == null) a.jstage = 0;
+  if(!a.status) a.status = 'active';
+  if(a.statusWhy == null) a.statusWhy = '';
+  if(a.tierSet == null) a.tierSet = '';
+  if(a.tierWhy == null) a.tierWhy = '';
+  if(a.nextStep == null) a.nextStep = '';
+  if(a.nextBy == null) a.nextBy = '';
+  a.people.forEach(p=>{
+    ['email','phone','linkedin','contactSource','contactStatus'].forEach(k=>{
+      if(p[k] == null) p[k] = '';
+    });
+  });
+  return a;
+}
+function normIntel(c){ (c.accounts||[]).forEach(accIntel); }
+
+/* ---------- tier, with the human allowed to overrule the maths ---------- */
+function iTier(a){ return (a && a.tierSet) ? a.tierSet : tierOf(a); }
+function tierIsOverridden(a){ return !!(a && a.tierSet && a.tierSet !== tierOf(a)); }
+
+function setTier(a, t, why){
+  const from = iTier(a);
+  if(from === t && a.tierSet === t) return;
+  a.tierHist.push({ from:from, to:t, why:why||'', at:today() });
+  a.tierSet = t; a.tierWhy = why||'';
+}
+
+/* ---------- research coverage against the tier standard ---------- */
+function areaState(a, k){ const r = a.research[k]; return (r && r.st) ? r.st : 'none'; }
+
+function areaCover(a){
+  const t = iTier(a), must = TIER_SPEC[t].must;
+  let ok=0, part=0, chk=0, stale=0, miss=0;
+  must.forEach(k=>{
+    const s = areaState(a,k);
+    if(s==='ok'||s==='na') ok++;
+    else if(s==='part') part++;
+    else if(s==='chk'){ chk++; }
+    else if(s==='old'){ stale++; }
+    else miss++;
+  });
+  const n = must.length || 1;
+  /* Partly done counts half. Needs checking counts half, because the work
+     exists but cannot be relied on yet. Stale counts nothing. */
+  const score = Math.round(((ok + part*0.5 + chk*0.5) / n) * 100);
+  return { pct:score, ok:ok, part:part, chk:chk, stale:stale, miss:miss, n:n, must:must };
+}
+
+/* ---------- committee coverage ---------- */
+function livePeople(a){ return (a.people||[]).filter(p=>p.sup!=='1'); }
+function rolesHeld(a){ const s={}; livePeople(a).forEach(p=>{ if(p.role) s[p.role]=1; }); return s; }
+function roleGaps(a){
+  const held = rolesHeld(a);
+  if(iTier(a)==='t3') return CORE_ROLES.slice(0,2).filter(r=>!held[r]);
+  return CORE_ROLES.filter(r=>!held[r]);
+}
+function engagedPeople(a){ return livePeople(a).filter(p=>num(p.eng)>=2).length; }
+
+/* ---------- triggers ---------- */
+function openTrigs(a){
+  const t = today();
+  return (a.trigs||[]).filter(x=> x.status==='open' && (!x.expiry || x.expiry >= t));
+}
+function trigForce(a){
+  let s=0; openTrigs(a).forEach(x=> s += num(x.strength,1)); return s;
+}
+
+/* ---------- findings ---------- */
+function findStats(a){
+  const f = a.findings||[];
+  const live = f.filter(x=>x.ver!=='no');
+  return {
+    n:f.length, live:live.length,
+    facts: live.filter(x=>x.kind==='fact').length,
+    infs:  live.filter(x=>x.kind==='inf').length,
+    hyps:  live.filter(x=>x.kind==='hyp').length,
+    verified: live.filter(x=>x.ver==='ok').length,
+    unsourced: live.filter(x=>!x.srcId).length,
+    needs: live.filter(x=>x.ver==='chk'||x.ver==='new').length,
+    outdated: live.filter(x=>x.ver==='old').length
+  };
+}
+function srcById(a,id){ return (a.sources||[]).filter(s=>s.id===id)[0]; }
+
+/* ---------- the five sub scores ----------
+   Each returns 0 to 10 and each shows its inputs in the UI. Nothing is
+   blended into a single number, because a great account we cannot reach
+   and a reachable account nobody needs would score identically. */
+function subScores(a){
+  const t = iTier(a);
+  const fit = (num(a.pot)+num(a.fit)+num(a.geo))/3;
+
+  const tf = trigForce(a);
+  const timing = clamp((num(a.trig)*0.6) + Math.min(tf,6)*0.8, 0, 10);
+
+  const intent = clamp(num(a.eng)*0.7 + Math.min(num(a.touches),8)*0.2 + Math.min(num(a.meetings),3)*0.7, 0, 10);
+
+  const want = TIER_SPEC[t].people[0] || 1;
+  const have = livePeople(a).length;
+  const gaps = roleGaps(a).length;
+  const coreN = (t==='t3') ? 2 : CORE_ROLES.length;
+  const cover = clamp((Math.min(have/want,1)*5) + ((coreN-gaps)/coreN)*5, 0, 10);
+
+  let relSum=0; livePeople(a).forEach(p=> relSum += num(p.rel));
+  const access = clamp(num(a.rel)*0.6 + Math.min(relSum,10)*0.4, 0, 10);
+
+  return { fit:r1(fit), timing:r1(timing), intent:r1(intent), cover:r1(cover), access:r1(access) };
+}
+function r1(n){ return Math.round(n*10)/10; }
+
+/* The weakest sub score, which is the thing actually holding the account
+   back. More useful to a team than an average. */
+function bottleneck(a){
+  const s = subScores(a);
+  let worst = SUBSCORES[0], wv = 99;
+  SUBSCORES.forEach(x=>{ if(s[x.k] < wv){ wv = s[x.k]; worst = x; } });
+  return { key:worst.k, name:worst.n, val:wv, q:worst.q };
+}
+
+/* ---------- journey ---------- */
+function jStage(a){ return JSTAGES[clamp(num(a.jstage),0,9)]; }
+function setJStage(a, n, evidence){
+  const from = num(a.jstage);
+  n = clamp(n,0,9);
+  if(n===from) return;
+  a.jhist.push({ from:from, to:n, evidence:evidence||'', at:today() });
+  a.jstage = n;
+}
+
+/* ---------- next best action ----------
+   Rules run over what has actually been entered. Nothing here fetches
+   anything, and nothing here sends anything. Each recommendation carries
+   the rule that produced it so a user can disagree with the rule rather
+   than with the machine. */
+function nbaModel(a){
+  const cov = areaCover(a), fs = findStats(a), ss = subScores(a);
+  return { a:a, tier:iTier(a), st:num(a.jstage), gaps:roleGaps(a),
+    openTrig:openTrigs(a).length, cover:cov.pct, stale:cov.stale,
+    facts:fs.facts, hyps:fs.hyps, unsourced:fs.unsourced,
+    sites:(a.sites||[]).length, people:livePeople(a).length,
+    engaged:engagedPeople(a), touches:num(a.touches),
+    intent:ss.intent, access:ss.access };
+}
+function nbaFor(a){
+  const m = nbaModel(a), out = [];
+  NBA_RULES.forEach(r=>{
+    let hit=false;
+    try{ hit = r.when(m); }catch(e){ hit=false; }
+    if(!hit) return;
+    out.push({ k:r.k, urg:r.urg,
+      act: typeof r.act==='function' ? r.act(m) : r.act,
+      why: typeof r.why==='function' ? r.why(m) : r.why });
+  });
+  out.sort((x,y)=> y.urg-x.urg);
+  /* One account should not present eleven equally urgent instructions.
+     Three is what a person will actually do this week. */
+  return out.slice(0,3);
+}
+
+/* ---------- portfolio rollups for the module dashboard ---------- */
+function intelAccounts(){
+  return liveAccounts().map(accIntel);
+}
+function intelRoll(){
+  const la = intelAccounts();
+  const byStage = {}; JSTAGES.forEach(s=>byStage[s.n]=0);
+  const byTier  = { t1:0,t2:0,t3:0 };
+  let covSum=0, unsourced=0, stale=0, gapAcc=0, noOwner=0, trig=0, disq=0, hyp=0, fact=0, started=0;
+  la.forEach(a=>{
+    byStage[clamp(num(a.jstage),0,9)]++;
+    byTier[iTier(a)]++;
+    const c=areaCover(a); covSum+=c.pct; stale+=c.stale;
+    if(c.pct>0 || (a.findings||[]).length) started++;
+    const f=findStats(a); unsourced+=f.unsourced; hyp+=f.hyps; fact+=f.facts;
+    if(roleGaps(a).length) gapAcc++;
+    if(!String(a.owner||'').trim()) noOwner++;
+    trig += openTrigs(a).length;
+    if(a.status==='disq') disq++;
+  });
+  const n = la.length||1;
+  return { n:la.length, byStage:byStage, byTier:byTier, avgCover:Math.round(covSum/n), started:started,
+    unsourced:unsourced, stale:stale, gapAcc:gapAcc, noOwner:noOwner, openTrig:trig,
+    disq:disq, hyps:hyp, facts:fact,
+    engaged: la.filter(a=>num(a.jstage)>=4).length,
+    multi: la.filter(a=>num(a.jstage)>=5).length,
+    opps: la.filter(a=>num(a.jstage)>=7).length };
+}
+
+/* Accounts most worth a person's attention this week: urgency of the top
+   recommendation first, then how much is at stake. */
+function intelQueue(limit){
+  const rows = intelAccounts().filter(a=>a.status!=='disq').map(a=>{
+    const n = nbaFor(a);
+    return { a:a, top:n[0]||null, urg:n[0]?n[0].urg:0, n:n.length, pot:num(a.pot) };
+  });
+  rows.sort((x,y)=> (y.urg-x.urg) || (y.pot-x.pot));
+  return rows.slice(0, limit||8);
+}
+
+/* ---------- the account brief ----------
+   Assembled from verified findings only, with everything unproven pushed
+   into its own section rather than smuggled into the narrative. */
+function briefData(a){
+  const live = (a.findings||[]).filter(f=>f.ver!=='no');
+  return {
+    facts: live.filter(f=>f.kind==='fact'),
+    infs:  live.filter(f=>f.kind==='inf'),
+    hyps:  live.filter(f=>f.kind==='hyp'),
+    unver: live.filter(f=>f.ver==='new'||f.ver==='chk'),
+    trigs: openTrigs(a),
+    gaps:  roleGaps(a),
+    cover: areaCover(a),
+    sub:   subScores(a),
+    sites: (a.sites||[]).filter(s=>s.opp!=='lost')
+  };
+}
+
+/* ============================================================
+   26. ACCOUNT INTELLIGENCE: THE WORKSPACE
+
+   Two screens in one view. With no account selected you get the
+   portfolio: where every account sits, what is missing across the
+   book, and the queue of accounts worth a person's time this week.
+   Select one and you get its workspace, eight tabs deep.
+   ============================================================ */
+
+const ITABS = [
+  ['over',  'Overview'],
+  ['res',   'Research'],
+  ['sites', 'Properties'],
+  ['ppl',   'Committee'],
+  ['strat', 'Strategy'],
+  ['jrn',   'Journey'],
+  ['src',   'Sources'],
+  ['brief', 'Brief']
+];
+
+function iAcct(){
+  const a = liveAccounts().filter(x=>x.id===ISEL.acct)[0];
+  return a ? accIntel(a) : null;
+}
+function rArea(a,k){ if(!a.research[k]) a.research[k] = { st:'none', note:'' }; return a.research[k]; }
+function ap(a, rest){ return 'accounts.'+a.id+'.'+rest; }
+
+/* small shared bits ------------------------------------------------ */
+function iPill(text, colour){
+  return '<span class="pill" style="background:'+mix(colour,.12)+';color:'+colour+'">'+esc(text)+'</span>';
+}
+function iBar(v, max, colour){
+  return '<span class="ibar"><i style="width:'+clamp(v/(max||10)*100,0,100)+'%;background:'+colour+'"></i></span>';
+}
+function iSelect(path, opts, live){
+  return tsel(path, opts.map(o=>[o[0],o[1]]), live, 'mini');
+}
+
+/* ============================================================
+   THE PORTFOLIO VIEW
+   ============================================================ */
+function vAccIntelPortfolio(){
+  const r = intelRoll(), q = intelQueue(6);
+  let h = '';
+
+  h += '<div class="grid4" style="margin-bottom:16px">'+
+    tileHTML('Accounts in the book', r.n, TIER_SPEC.t1.label+' '+r.byTier.t1+' &middot; T2 '+r.byTier.t2+' &middot; T3 '+r.byTier.t3, 'vi')+
+    tileHTML('Research complete', r.avgCover+'%', r.started+' of '+r.n+' accounts have any research at all', 'te')+
+    tileHTML('Engaged or better', r.engaged, r.multi+' multi threaded &middot; '+r.opps+' at opportunity', 'pk')+
+    tileHTML('Live triggers open', r.openTrig, 'Reasons to call somebody this week', 'go')+
+  '</div>';
+
+  /* The honest panel. Everything here is a reason not to trust the book. */
+  h += '<div class="card"><header><h3>What is wrong with the book right now</h3>'+
+    '<span class="hint">Read this before the pretty numbers above</span></header><div class="body">'+
+    '<div class="grid4">'+
+      flawHTML(r.unsourced, 'findings with no source', 'Any of these could reach a buyer and none can be defended.', C.pink)+
+      flawHTML(r.gapAcc,    'accounts missing a core role', 'The people who decide are not on the map.', C.violet)+
+      flawHTML(r.stale,     'research areas gone stale', 'Old facts presented as current is how credibility goes.', '#8A6206')+
+      flawHTML(r.noOwner,   'accounts with no owner', 'Nobody is accountable for moving these.', C.ink3)+
+    '</div>'+
+    (r.hyps > r.facts && r.facts>0
+      ? '<div class="inbox" style="margin-top:14px"><b>The book leans on assumption.</b> '+r.hyps+
+        ' hypotheses against '+r.facts+' verified facts. That is a story about the market rather than a case built on it.</div>'
+      : '')+
+  '</div></div>';
+
+  /* Journey distribution */
+  h += '<div class="card"><header><h3>Where the accounts actually are</h3>'+
+    '<span class="hint">Stage moves when a person moves it, never automatically</span></header><div class="body tight">'+
+    '<table class="tbl"><thead><tr><th style="width:170px">Stage</th><th style="width:70px" class="num">Accounts</th>'+
+    '<th>Spread</th><th>What has to be true to leave this stage</th></tr></thead><tbody>';
+  const mx = Math.max.apply(null, JSTAGES.map(s=>r.byStage[s.n]).concat([1]));
+  JSTAGES.forEach(s=>{
+    const n = r.byStage[s.n];
+    h += '<tr'+(n?'':' style="opacity:.45"')+'>'+
+      '<td><b style="color:'+s.c+'">'+s.n+'</b> &nbsp;'+esc(s.nav)+'</td>'+
+      '<td class="num">'+n+'</td>'+
+      '<td style="width:180px">'+iBar(n, mx, s.c)+'</td>'+
+      '<td class="tiny muted">'+esc(s.gate[0])+'</td></tr>';
+  });
+  h += '</tbody></table></div></div>';
+
+  /* The queue */
+  h += '<div class="card"><header><h3>Worth your time this week</h3>'+
+    '<span class="hint">Ranked by how urgent the top recommendation is, then by what is at stake</span></header><div class="body tight">';
+  if(!q.length) h += '<div class="empty">No accounts yet. Add them on The Account List, then research them here.</div>';
+  else {
+    h += '<table class="tbl"><thead><tr><th>Account</th><th style="width:52px">Tier</th>'+
+      '<th style="width:120px">Stage</th><th style="width:64px" class="num">Research</th>'+
+      '<th>Next best action, and why</th><th style="width:34px"></th></tr></thead><tbody>';
+    q.forEach(row=>{
+      const a = row.a, t = iTier(a), js = jStage(a), cov = areaCover(a);
+      h += '<tr>'+
+        '<td><a href="#" data-act="iopen" data-id="'+a.id+'"><b>'+esc(a.name)+'</b></a>'+
+          (a.owner?'<div class="tiny muted">'+esc(a.owner)+'</div>':'<div class="tiny" style="color:'+C.pink+'">no owner</div>')+'</td>'+
+        '<td>'+iPill(TIERSHORT[t], TIER_SPEC[t].c)+(tierIsOverridden(a)?'<span class="tiny muted" title="Set by a person, not by the score"> set</span>':'')+'</td>'+
+        '<td class="tiny"><b style="color:'+js.c+'">'+js.n+'</b> '+esc(js.nav)+'</td>'+
+        '<td class="num">'+cov.pct+'%</td>'+
+        '<td>'+(row.top
+            ? '<b>'+esc(row.top.act)+'</b> '+iPill(URG[row.top.urg][0], URG[row.top.urg][1])+
+              '<div class="tiny muted">'+esc(row.top.why)+'</div>'
+            : '<span class="tiny muted">Nothing pressing. Keep it warm.</span>')+'</td>'+
+        '<td><button class="editbtn" data-act="iopen" data-id="'+a.id+'">Open</button></td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  h += '</div></div>';
+  return h;
+}
+function tileHTML(k,v,d,cls){
+  return '<div class="tile '+cls+'"><div class="k">'+esc(k)+'</div><div class="v">'+v+'</div><div class="d">'+d+'</div></div>';
+}
+function flawHTML(n, label, why, colour){
+  const good = n===0;
+  return '<div style="border-left:3px solid '+(good?C.teal:colour)+';padding-left:11px">'+
+    '<div style="font-size:23px;font-weight:750;color:'+(good?C.teal:colour)+';line-height:1.1">'+n+'</div>'+
+    '<div style="font-size:11.5px;font-weight:650;margin-top:2px">'+esc(label)+'</div>'+
+    '<div class="tiny muted" style="margin-top:3px">'+(good?'Clean.':esc(why))+'</div></div>';
+}
+
+/* ============================================================
+   THE ACCOUNT WORKSPACE
+   ============================================================ */
+function vAccIntel(){
+  const a = iAcct();
+  if(!a) return vAccIntelPortfolio();
+
+  const t = iTier(a), js = jStage(a), spec = TIER_SPEC[t];
+  let h = '';
+
+  /* header */
+  h += '<div class="iwhead">'+
+    '<button class="editbtn" data-act="iclose">&lsaquo; All accounts</button>'+
+    '<div class="iwname"><h2>'+esc(a.name)+'</h2>'+
+      '<div class="tiny muted">'+esc(a.city||'')+(a.incumbent?' &middot; incumbent: '+esc(a.incumbent):'')+'</div></div>'+
+    '<div class="spacer" style="flex:1"></div>'+
+    iPill(spec.label+', '+spec.mode.toLowerCase(), spec.c)+' '+
+    iPill(js.n+' '+js.nav, js.c)+' '+
+    iPill(ACCST_L[a.status], ACCST_C[a.status])+
+  '</div>';
+
+  h += '<div class="itabs">'+ITABS.map(x=>
+      '<button class="itab'+(ISEL.tab===x[0]?' on':'')+'" data-act="itab" data-t="'+x[0]+'">'+x[1]+'</button>'
+    ).join('')+'</div>';
+
+  const F = { over:iOver, res:iRes, sites:iSites, ppl:iPeople, strat:iStrat, jrn:iJourney, src:iSources, brief:iBrief };
+  h += (F[ISEL.tab]||iOver)(a);
+  return h;
+}
+
+/* ---------- OVERVIEW ---------- */
+function iOver(a){
+  const s = subScores(a), b = bottleneck(a), nba = nbaFor(a), cov = areaCover(a), t = iTier(a);
+  let h = '';
+
+  /* next best actions first, because that is what the screen is for */
+  h += '<div class="card"><header><h3>What to do next</h3>'+
+    '<span class="hint">Rules over what you have entered. Nothing here was fetched and nothing gets sent</span></header><div class="body">';
+  if(!nba.length){
+    h += '<div class="calcbox">Nothing is flagged. The research is current, the committee has no core gaps, '+
+      'and there is no open trigger going unanswered. Keep it warm and watch for a trigger.</div>';
+  } else {
+    nba.forEach(n=>{
+      h += '<div class="nba" style="border-left-color:'+URG[n.urg][1]+'">'+
+        '<div class="split"><b>'+esc(n.act)+'</b>'+iPill(URG[n.urg][0], URG[n.urg][1])+'</div>'+
+        '<div class="tiny muted" style="margin-top:4px">'+esc(n.why)+'</div></div>';
+    });
+  }
+  h += '<div class="hlp">Recommendations are advice. A person decides, and nothing leaves this app.</div>';
+  h += '</div></div>';
+
+  /* the five sub scores */
+  h += '<div class="card"><header><h3>Five separate scores, deliberately not added up</h3>'+
+    '<span class="hint">A great account you cannot reach and a reachable account nobody needs would average the same</span>'+
+    '</header><div class="body"><div class="grid3">';
+  SUBSCORES.forEach(x=>{
+    const v = s[x.k], weak = x.k===b.key;
+    h += '<div class="subsc'+(weak?' weak':'')+'" style="border-left-color:'+x.c+'">'+
+      '<div class="k">'+esc(x.n)+(weak?' <span class="tiny" style="color:'+C.pink+'">weakest</span>':'')+'</div>'+
+      '<div class="v" style="color:'+x.c+'">'+fmt(v)+'<small>/10</small></div>'+
+      iBar(v,10,x.c)+
+      '<div class="tiny muted" style="margin-top:5px">'+esc(x.q)+'</div></div>';
+  });
+  h += '</div>';
+  h += '<div class="calcbox" style="margin-top:14px"><b>The thing holding this account back is '+
+    esc(b.name.toLowerCase())+', at '+fmt(b.val)+' out of 10.</b> '+esc(b.q)+
+    ' Work on that before spending anything else here.</div>';
+  h += '</div></div>';
+
+  /* tier and status */
+  h += '<div class="grid2">';
+  h += '<div class="card"><header><h3>Tier</h3><span class="hint">The score suggests, a person decides</span></header><div class="body">'+
+    '<div class="split"><div><div class="tiny muted">Score says</div><b>'+TIER_SPEC[tierOf(a)].label+
+      '</b> <span class="tiny muted">('+fmt(scoreOf(a))+' out of 100)</span></div>'+
+    '<div style="text-align:right"><div class="tiny muted">Running as</div>'+
+      iSelect(ap(a,'tierSet'), [['','Use the score'],['t1','Tier 1'],['t2','Tier 2'],['t3','Tier 3']], true)+'</div></div>';
+  if(a.tierSet){
+    h += '<div class="inbox" style="margin-top:11px"><div class="tiny" style="font-weight:700;margin-bottom:5px">'+
+      'Why this account is not being run at the tier its score suggests</div>'+
+      ta(ap(a,'tierWhy'),'A reason a colleague would accept. This is kept in the history.')+'</div>';
+  }
+  if((a.tierHist||[]).length){
+    h += '<div class="tiny muted" style="margin-top:10px"><b>History.</b> '+
+      a.tierHist.slice(-3).map(x=>esc(x.at+': '+TIERSHORT[x.from]+' to '+TIERSHORT[x.to]+(x.why?', '+x.why:''))).join('<br>')+'</div>';
+  }
+  h += '<div class="hlp">'+esc(TIER_SPEC[t].mode)+'. '+esc(TIER_SPEC[t].vol)+'. Reviewed '+
+    esc(TIER_SPEC[t].review.toLowerCase())+'. '+esc(TIER_SPEC[t].goal)+'</div>';
+  h += '</div></div>';
+
+  h += '<div class="card"><header><h3>Status and ownership</h3></header><div class="body">'+
+    '<div class="kv">'+
+      '<dt>Status</dt><dd>'+iSelect(ap(a,'status'), ACC_STATUS.map(x=>[x[0],x[1]]), true)+'</dd>'+
+      '<dt>Owner</dt><dd>'+ti(ap(a,'owner'),'Who is accountable for moving this')+'</dd>'+
+      '<dt>Next step</dt><dd>'+ti(ap(a,'nextStep'),'The specific thing that happens next')+'</dd>'+
+      '<dt>By when</dt><dd>'+ti(ap(a,'nextBy'),'2026-09-15','inp mono')+'</dd>'+
+    '</div>';
+  if(a.status!=='active'){
+    h += '<div class="inbox" style="margin-top:11px"><div class="tiny" style="font-weight:700;margin-bottom:5px">'+
+      'Reason, so nobody restarts this by accident</div>'+
+      ta(ap(a,'statusWhy'),'Say what changed and what would have to change back.')+
+      '<div class="chips" style="margin-top:8px">'+DISQ_REASONS.slice(0,6).map(x=>
+        '<button class="chip add" data-act="idisqr" data-v="'+esc(x)+'">'+esc(x)+'</button>').join('')+'</div></div>';
+  }
+  h += '<div class="hlp">Research completeness for '+esc(TIER_SPEC[t].label)+' is <b>'+cov.pct+'%</b>. '+
+    (cov.miss? cov.miss+' area'+(cov.miss>1?'s':'')+' untouched.' : 'Every required area has been started.')+'</div>';
+  h += '</div></div>';
+  h += '</div>';
+
+  return h;
+}
+
+/* ---------- RESEARCH ---------- */
+function iRes(a){
+  const t = iTier(a), cov = areaCover(a), must = {}; cov.must.forEach(k=>must[k]=1);
+  let h = '';
+
+  h += '<div class="card"><header><h3>The '+esc(TIER_SPEC[t].label)+' research standard</h3>'+
+    '<span class="hint">'+cov.must.length+' areas required at this tier, '+cov.pct+'% covered</span></header>'+
+    '<div class="body"><div class="covbar">'+
+      '<i style="width:'+cov.pct+'%;background:'+(cov.pct>=80?C.teal:cov.pct>=50?C.gold:C.pink)+'"></i></div>'+
+    '<div class="tiny muted" style="margin-top:7px">Complete '+cov.ok+' &middot; partly '+cov.part+
+      ' &middot; needs checking '+cov.chk+' &middot; stale '+cov.stale+' &middot; untouched '+cov.miss+
+      '. Partly done and needs checking each count half, stale counts nothing.</div></div></div>';
+
+  RESEARCH_AREAS.forEach(area=>{
+    const req = !!must[area.k], r = rArea(a, area.k);
+    const st = r.st||'none';
+    const fs = (a.findings||[]).filter(f=>f.area===area.k && f.ver!=='no');
+    h += '<div class="card area'+(req?'':' opt')+'"><header>'+
+      '<span class="adot" style="background:'+AREA_ST_C[st]+'"></span>'+
+      '<h3>'+esc(area.n)+'</h3>'+
+      (req?'':'<span class="pill" style="background:var(--paper);color:var(--ink3)">not required at '+TIERSHORT[t]+'</span>')+
+      '<span class="hint">'+esc(area.q)+'</span>'+
+      '<div class="spacer" style="flex:1"></div>'+
+      iSelect(ap(a,'research.'+area.k+'.st'), AREA_ST.map(x=>[x[0],x[1]]), true)+
+      '</header><div class="body">';
+
+    h += '<div class="grid2"><div>'+
+      '<div class="tiny" style="font-weight:700;margin-bottom:5px">What to look for</div>'+
+      '<ul class="asks">'+area.ask.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div><div>'+
+      '<div class="tiny" style="font-weight:700;margin-bottom:5px">Working notes</div>'+
+      ta(ap(a,'research.'+area.k+'.note'),'Rough notes. Anything you would defend goes below as a finding.')+
+      '</div></div>';
+
+    h += '<div class="findhead"><b>'+fs.length+' finding'+(fs.length===1?'':'s')+'</b>'+
+      '<button class="chip add" data-act="ifadd" data-area="'+area.k+'">+ Add a finding</button></div>';
+    if(fs.length) h += fs.map(f=>findingHTML(a,f)).join('');
+    h += '</div></div>';
+  });
+  return h;
+}
+
+function findingHTML(a,f){
+  const src = f.srcId ? srcById(a,f.srcId) : null;
+  const p = ap(a,'findings.'+f.id+'.');
+  return '<div class="finding" style="border-left-color:'+KIND_C[f.kind||'hyp']+'">'+
+    '<div class="split">'+
+      '<div style="flex:1;min-width:0">'+ti(p+'title','What you found, in one line','inp b')+'</div>'+
+      '<button class="xbtn" data-act="ifdel" data-id="'+f.id+'" title="Delete">&times;</button>'+
+    '</div>'+
+    ta(p+'text','Why it matters commercially. Not what the article said, what it means for this deal.')+
+    '<div class="fmeta">'+
+      iSelect(p+'kind', FIND_KIND.map(x=>[x[0],x[1]]), true)+
+      iSelect(p+'ver',  VERIFY.map(x=>[x[0],x[1]]), true)+
+      iSelect(p+'conf', CONF, true)+
+      iSelect(p+'srcId', [['','No source yet']].concat((a.sources||[]).map(s=>[s.id, (s.publisher||s.title||'source')])), true)+
+      (src ? '<span class="pill" style="background:'+mix(SRCQ_C[src.q||'1'],.12)+';color:'+SRCQ_C[src.q||'1']+'">'+esc(SRCQ_L[src.q||'1'])+'</span>'
+           : '<span class="pill" style="background:'+mix(C.pink,.12)+';color:'+C.pink+'">unsourced</span>')+
+    '</div>'+
+    (!f.srcId ? '<div class="tiny" style="color:'+C.pink+';margin-top:5px">This cannot go in front of a buyer until it has a source.</div>' : '')+
+    (f.kind==='hyp' ? '<div class="tiny muted" style="margin-top:5px">A hypothesis is a question in disguise. Put it to them in discovery rather than asserting it.</div>' : '')+
+  '</div>';
+}
+
+/* ---------- PROPERTIES ---------- */
+function iSites(a){
+  const sites = a.sites||[];
+  let h = '<div class="card"><header><h3>Properties and sites</h3>'+
+    '<span class="hint">The opportunity is a building, not a company. One account, many chances to start</span>'+
+    '</header><div class="body tight">';
+  if(!sites.length){
+    h += '<div class="empty">No properties recorded.<br><span class="tiny">Until one is named there is nothing concrete to offer an assessment on.</span></div>';
+  } else {
+    h += '<table class="tbl"><thead><tr><th>Property</th><th style="width:120px">Type</th>'+
+      '<th style="width:130px">Status</th><th style="width:110px">We hold</th>'+
+      '<th style="width:110px">Key date</th><th style="width:130px">Opportunity</th><th style="width:34px"></th></tr></thead><tbody>';
+    sites.forEach(s=>{
+      const p = ap(a,'sites.'+s.id+'.');
+      h += '<tr>'+
+        '<td>'+ti(p+'name','Property name')+
+          '<div style="margin-top:4px">'+ti(p+'city','City or area','inp tiny')+'</div></td>'+
+        '<td>'+iSelect(p+'type', SITE_TYPE, false)+'</td>'+
+        '<td>'+iSelect(p+'status', SITE_STATUS.map(x=>[x[0],x[1]]), true)+'</td>'+
+        '<td>'+iSelect(p+'owner', SITE_HOLD, false)+'</td>'+
+        '<td>'+ti(p+'date','2027-03','inp mono tiny')+'</td>'+
+        '<td>'+iSelect(p+'opp', SITE_OPP, true)+'</td>'+
+        '<td><button class="xbtn" data-act="isdel" data-id="'+s.id+'">&times;</button></td></tr>'+
+        '<tr class="subrow"><td colspan="7">'+
+          ta(p+'need','What this specific building needs, and what we would find if we surveyed it.')+
+        '</td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  h += '</div><button class="addrow" data-act="isadd">+ Add a property</button></div>';
+
+  if(sites.length){
+    const byStatus = {};
+    sites.forEach(s=>{ const k=s.status||'plan'; byStatus[k]=(byStatus[k]||0)+1; });
+    h += '<div class="card"><header><h3>Where the timing is</h3>'+
+      '<span class="hint">Handover due is the moment to be in the room, and it happens once per building</span>'+
+      '</header><div class="body"><div class="chips">'+
+      SITE_STATUS.filter(s=>byStatus[s[0]]).map(s=>
+        '<span class="chip" style="border-color:'+mix(s[2],.35)+';color:'+s[2]+'"><b>'+byStatus[s[0]]+'</b> '+esc(s[1])+'</span>'
+      ).join('')+'</div>'+
+      (byStatus.hand ? '<div class="inbox" style="margin-top:12px"><b>'+byStatus.hand+
+        ' propert'+(byStatus.hand>1?'ies are':'y is')+' at handover.</b> Once a building is handed over the specification is set and the cost of changing it lands on somebody. Before handover it is a line in a plan.</div>' : '')+
+      '</div></div>';
+  }
+  return h;
+}
+
+/* ---------- COMMITTEE ---------- */
+function iPeople(a){
+  const t = iTier(a), people = a.people||[], gaps = roleGaps(a), held = rolesHeld(a);
+  const want = TIER_SPEC[t].people;
+  let h = '';
+
+  h += '<div class="card"><header><h3>Role coverage</h3>'+
+    '<span class="hint">'+TIER_SPEC[t].label+' wants '+want[0]+' to '+want[1]+' people mapped. You have '+livePeople(a).length+
+    '</span></header><div class="body"><div class="rolegrid">';
+  BUY_ROLES.forEach(r=>{
+    const has = !!held[r[0]], core = !!r[4];
+    h += '<div class="rolebox'+(has?' has':core?' gap':'')+'" style="border-color:'+(has?mix(r[3],.45):'var(--line)')+'">'+
+      '<div class="rn" style="color:'+(has?r[3]:'var(--ink3)')+'">'+esc(r[1])+
+        (core?' <span class="tiny" style="opacity:.7">core</span>':'')+'</div>'+
+      '<div class="tiny muted">'+esc(r[2])+'</div>'+
+      '<div class="rs">'+(has
+        ? livePeople(a).filter(p=>p.role===r[0]).map(p=>esc(p.name||'unnamed')).join(', ')
+        : '<span style="color:'+(core?C.pink:'var(--ink3)')+'">'+(core?'missing':'not mapped')+'</span>')+'</div>'+
+    '</div>';
+  });
+  h += '</div>';
+  if(gaps.length){
+    h += '<div class="inbox" style="margin-top:14px"><b>'+gaps.length+' core role'+(gaps.length>1?'s are':' is')+' missing: '+
+      esc(gaps.map(g=>ROLE2_L[g].toLowerCase()).join(', '))+'.</b> Working harder on the people you already know will not close this. '+
+      'The missing roles are the ones who can say no.</div>';
+  } else {
+    h += '<div class="calcbox" style="margin-top:14px"><b>Every core role is mapped.</b> This account can progress on merit rather than on one relationship.</div>';
+  }
+  h += '</div></div>';
+
+  h += '<div class="card"><header><h3>The people</h3>'+
+    '<span class="hint">Never infer anything personal. Professional interests are hypotheses until they say so</span>'+
+    '</header><div class="body tight">';
+  if(!people.length){
+    h += '<div class="empty">Nobody mapped yet.</div>';
+  } else {
+    h += '<table class="tbl"><thead><tr><th style="width:150px">Name</th><th>Title</th>'+
+      '<th style="width:140px">Buying role</th><th style="width:96px">Influence</th>'+
+      '<th style="width:96px">Relationship</th><th style="width:110px">Owner</th>'+
+      '<th style="width:88px">Verified</th><th style="width:34px"></th></tr></thead><tbody>';
+    people.forEach(p=>{
+      const pp = ap(a,'people.'+p.id+'.');
+      h += '<tr'+(p.sup==='1'?' style="opacity:.45"':'')+'>'+
+        '<td>'+ti(pp+'name','Full name')+'</td>'+
+        '<td>'+ti(pp+'title','Verified job title')+'</td>'+
+        '<td>'+iSelect(pp+'role', [['','Not set']].concat(BUY_ROLES.map(r=>[r[0],r[1]])), true)+'</td>'+
+        '<td>'+iSelect(pp+'infl', LEVEL, false)+'</td>'+
+        '<td>'+iSelect(pp+'rel', STRENGTH, true)+'</td>'+
+        '<td>'+ti(pp+'owner','Ours')+'</td>'+
+        '<td>'+ti(pp+'verAt','2026-08','inp mono tiny')+'</td>'+
+        '<td><button class="xbtn" data-act="ipdel" data-id="'+p.id+'">&times;</button></td></tr>'+
+        '<tr class="subrow"><td colspan="8">'+
+          '<div class="grid2" style="gap:8px;margin-bottom:8px">'+
+            ti(pp+'email','Public business email')+
+            ti(pp+'phone','Public business phone')+
+            ti(pp+'linkedin','LinkedIn or public profile URL')+
+            ti(pp+'contactStatus','Verified, role only, or needs checking')+
+          '</div>'+
+          ti(pp+'contactSource','Where this contact detail came from')+
+        '</td></tr>'+
+        '<tr class="subrow"><td colspan="8">'+
+          ta(pp+'care','What this person is measured on, and what would make their year easier. Evidence, not guesswork.')+
+        '</td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  h += '</div><button class="addrow" data-act="ipadd">+ Add a person</button></div>';
+  return h;
+}
+
+/* ---------- STRATEGY ---------- */
+const STRAT_FIELDS = [
+  ['objective','Account objective','What commercial outcome do we want here? Name it in money or in buildings.'],
+  ['thesis',   'Account thesis','Why should this company need what our client sells? One sentence a salesperson could say out loud.'],
+  ['whyNow',   'Why now','What makes this quarter different from last quarter?'],
+  ['priority', 'Where we start','The property, region or business unit the first opportunity lives in.'],
+  ['value',    'Value hypothesis','What measurable business value might be created, and how would they check it?'],
+  ['champion', 'Champion plan','Who could carry this internally, and what do they get out of it?'],
+  ['access',   'Access route','Direct, introduction, partner, event or inbound. How do we get in the room?'],
+  ['proof',    'Proof plan','Which case study, number or person builds belief for this specific buyer?'],
+  ['offer',    'The offer','Assessment, workshop, benchmark or pilot. Something concrete, not a meeting request.'],
+  ['obstacles','Obstacles','Incumbent, budget, authority, timing, technical or legal. Write the real ones.'],
+  ['success',  'Success criteria','What progression counts as this working?'],
+  ['exit',     'Exit criteria','When do we stop, pause or move to nurture? Write this while you are calm.']
+];
+function iStrat(a){
+  const st = a.strategy, t = iTier(a);
+  let h = '';
+  if(t==='t3'){
+    h += '<div class="card"><div class="body"><div class="calcbox"><b>This account is running as Tier 3.</b> '+
+      'A full canvas is not required until it is promoted. Fill the thesis and the offer, leave the rest.</div></div></div>';
+  }
+  h += '<div class="card"><header><h3>Account strategy</h3>'+
+    '<span class="hint">If a colleague read only this, could they run the account?</span></header><div class="body">';
+  h += '<div class="grid2">';
+  STRAT_FIELDS.forEach((f,i)=>{
+    const filled = String(st[f[0]]||'').trim()!=='';
+    h += '<div class="sfield'+(filled?' filled':'')+'">'+
+      '<div class="sf-k">'+esc(f[1])+(filled?'':' <span class="tiny" style="color:var(--ink3)">empty</span>')+'</div>'+
+      ta(ap(a,'strategy.'+f[0]), f[2])+
+    '</div>';
+  });
+  h += '</div></div></div>';
+
+  h += '<div class="card"><header><h3>Discovery questions</h3>'+
+    '<span class="hint">The questions that would turn your hypotheses into facts</span></header><div class="body">'+
+    bulletList(a, 'strategy.questions', 'A question you would actually ask in the room')+
+    '<div class="hlp">Write one for every hypothesis on the research tab. A hypothesis you never test becomes a fact by repetition, which is how proposals end up wrong.</div>'+
+    '</div></div>';
+  return h;
+}
+function bulletList(a, path, ph){
+  const arr = arrPath(ap(a,path))||[];
+  let h = '<div class="stack">';
+  arr.forEach((v,i)=>{
+    h += '<div class="split" style="gap:8px">'+ti(ap(a,path+'.'+i), ph)+
+      '<button class="xbtn" data-act="ibdel" data-p="'+path+'" data-i="'+i+'">&times;</button></div>';
+  });
+  h += '</div><button class="chip add" style="margin-top:8px" data-act="ibadd" data-p="'+path+'">+ Add</button>';
+  return h;
+}
+
+/* ---------- JOURNEY ---------- */
+function iJourney(a){
+  const cur_ = num(a.jstage), t = iTier(a);
+  let h = '';
+
+  h += '<div class="card"><header><h3>Where this account is</h3>'+
+    '<span class="hint">Activity from one person rolls up but never moves the stage on its own</span>'+
+    '</header><div class="body tight"><div class="jladder">';
+  JSTAGES.forEach(s=>{
+    const state = s.n<cur_?'past':s.n===cur_?'now':'ahead';
+    h += '<div class="jstep '+state+'">'+
+      '<div class="jn" style="'+(state==='ahead'?'':'background:'+s.c+';color:#fff;border-color:'+s.c)+'">'+s.n+'</div>'+
+      '<div class="jbody">'+
+        '<div class="split"><b>'+esc(s.nav)+'</b>'+
+          (state==='now'?'<span class="pill" style="background:'+mix(s.c,.14)+';color:'+s.c+'">here now</span>':
+           state==='ahead'?'<button class="editbtn" data-act="ijset" data-n="'+s.n+'">Move here</button>':
+           '<button class="editbtn" data-act="ijset" data-n="'+s.n+'">Move back</button>')+
+        '</div>'+
+        '<div class="tiny muted">'+esc(s.d)+'</div>'+
+        (state==='now' ? '<div class="jgate"><div class="tiny" style="font-weight:700;margin-bottom:4px">'+
+            'Before this account leaves this stage</div><ul class="asks">'+
+            s.gate.map(g=>'<li>'+esc(g)+'</li>').join('')+'</ul></div>' : '')+
+      '</div></div>';
+  });
+  h += '</div></div></div>';
+
+  if((a.jhist||[]).length){
+    h += '<div class="card"><header><h3>How it got here</h3></header><div class="body tight">'+
+      '<table class="tbl"><thead><tr><th style="width:100px">Date</th><th style="width:200px">Move</th><th>Evidence given</th></tr></thead><tbody>'+
+      a.jhist.slice().reverse().map(x=>'<tr><td class="mono tiny">'+esc(x.at)+'</td>'+
+        '<td class="tiny">'+esc(JSTAGES[x.from].nav)+' to <b>'+esc(JSTAGES[x.to].nav)+'</b></td>'+
+        '<td class="tiny'+(x.evidence?'':' muted')+'">'+esc(x.evidence||'none recorded')+'</td></tr>').join('')+
+      '</tbody></table></div></div>';
+  }
+
+  /* triggers */
+  const trigs = a.trigs||[];
+  h += '<div class="card"><header><h3>Triggers</h3>'+
+    '<span class="hint">'+openTrigs(a).length+' open. A trigger with no action beside it is a missed quarter</span>'+
+    '</header><div class="body tight">';
+  if(!trigs.length){
+    h += '<div class="empty">No triggers recorded.<br><span class="tiny">An account with no trigger has no reason to move this quarter, which is worth knowing.</span></div>';
+  } else {
+    h += '<table class="tbl"><thead><tr><th style="width:170px">Type</th><th>What happened</th>'+
+      '<th style="width:100px">Date</th><th style="width:100px">Window ends</th>'+
+      '<th style="width:96px">Strength</th><th style="width:120px">Status</th><th style="width:34px"></th></tr></thead><tbody>';
+    trigs.forEach(x=>{
+      const p = ap(a,'trigs.'+x.id+'.');
+      h += '<tr>'+
+        '<td>'+iSelect(p+'type', TRIG_TYPE, false)+'</td>'+
+        '<td>'+ti(p+'desc','What happened, in their words where possible')+'</td>'+
+        '<td>'+ti(p+'date','2026-08-01','inp mono tiny')+'</td>'+
+        '<td>'+ti(p+'expiry','2026-11-01','inp mono tiny')+'</td>'+
+        '<td>'+iSelect(p+'strength', TRIG_STR, true)+'</td>'+
+        '<td>'+iSelect(p+'status', TRIG_ST, true)+'</td>'+
+        '<td><button class="xbtn" data-act="itdel" data-id="'+x.id+'">&times;</button></td></tr>'+
+        '<tr class="subrow"><td colspan="7">'+ti(p+'action','What we should do about it, and by when')+'</td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  h += '</div><button class="addrow" data-act="itadd">+ Add a trigger</button></div>';
+  return h;
+}
+
+/* ---------- SOURCES ---------- */
+function iSources(a){
+  const sources = a.sources||[], fs = findStats(a);
+  let h = '';
+
+  h += '<div class="card"><header><h3>Evidence quality</h3></header><div class="body"><div class="grid4">'+
+    tileHTML('Findings', fs.live, fs.facts+' fact, '+fs.infs+' inferred, '+fs.hyps+' hypothesis', 'vi')+
+    tileHTML('Verified', fs.verified, 'Checked by a person, not just entered', 'te')+
+    tileHTML('No source', fs.unsourced, fs.unsourced? 'These cannot be used externally':'Everything is sourced', fs.unsourced?'pk':'te')+
+    tileHTML('Sources held', sources.length, 'On this account', 'go')+
+  '</div></div></div>';
+
+  h += '<div class="card"><header><h3>Source library</h3>'+
+    '<span class="hint">Retrieval date matters as much as publication date</span></header><div class="body tight">';
+  if(!sources.length){
+    h += '<div class="empty">No sources yet.<br><span class="tiny">Add one before writing findings, so each finding can point at something.</span></div>';
+  } else {
+    h += '<table class="tbl"><thead><tr><th style="width:150px">Publisher</th><th>Title</th>'+
+      '<th style="width:150px">Type</th><th style="width:96px">Published</th>'+
+      '<th style="width:96px">Accessed</th><th style="width:150px">Quality</th><th style="width:34px"></th></tr></thead><tbody>';
+    sources.forEach(s=>{
+      const p = ap(a,'sources.'+s.id+'.'), used = (a.findings||[]).filter(f=>f.srcId===s.id).length;
+      h += '<tr>'+
+        '<td>'+ti(p+'publisher','Who published it')+'</td>'+
+        '<td>'+ti(p+'title','Headline or document name')+
+          '<div style="margin-top:4px">'+ti(p+'url','https://','inp tiny mono')+'</div></td>'+
+        '<td>'+iSelect(p+'type', SRC_TYPE, false)+'</td>'+
+        '<td>'+ti(p+'pub','2026-06','inp mono tiny')+'</td>'+
+        '<td>'+ti(p+'acc','2026-08','inp mono tiny')+'</td>'+
+        '<td>'+iSelect(p+'q', SRC_Q.map(x=>[x[0],x[1]]), true)+
+          '<div class="tiny muted" style="margin-top:3px">'+used+' finding'+(used===1?'':'s')+'</div></td>'+
+        '<td><button class="xbtn" data-act="isrcdel" data-id="'+s.id+'">&times;</button></td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  h += '</div><button class="addrow" data-act="isrcadd">+ Add a source</button></div>';
+
+  h += '<div class="card"><header><h3>The hierarchy we rank against</h3></header><div class="body tight">'+
+    '<table class="tbl"><tbody>'+SRC_Q.map(s=>'<tr><td style="width:44px"><b style="color:'+s[3]+'">'+s[0]+'</b></td>'+
+      '<td style="width:180px"><b>'+esc(s[1])+'</b></td><td class="tiny muted">'+esc(s[2])+'</td></tr>').join('')+
+    '</tbody></table></div></div>';
+  return h;
+}
+
+/* ---------- BRIEF ---------- */
+function iBrief(a){
+  const b = briefData(a), t = iTier(a), js = jStage(a), nba = nbaFor(a);
+  let h = '<div class="rowend" style="margin-bottom:12px">'+
+    '<button class="tbtn" data-act="ibrief">Open printable brief</button></div>';
+
+  h += '<div class="card brief"><div class="body">';
+  h += '<h2 style="margin:0 0 3px">'+esc(a.name)+'</h2>'+
+    '<div class="tiny muted">'+esc(TIER_SPEC[t].label)+' &middot; '+esc(TIER_SPEC[t].mode.toLowerCase())+' &middot; stage '+js.n+' '+esc(js.nav)+
+    ' &middot; owner '+esc(a.owner||'unassigned')+' &middot; prepared '+today()+'</div>';
+
+  h += brSec('Why this account matters', a.strategy.thesis || '<span class="muted">No thesis written. Everything below is research without an argument.</span>');
+  if(a.strategy.whyNow) h += brSec('Why now', esc(a.strategy.whyNow));
+
+  if(b.trigs.length){
+    h += '<h4>Live triggers</h4><ul class="asks">'+b.trigs.map(x=>
+      '<li><b>'+esc(x.desc||'untitled')+'</b> <span class="tiny muted">'+esc(x.date||'')+
+      (x.action?' &middot; '+esc(x.action):'')+'</span></li>').join('')+'</ul>';
+  }
+
+  if(b.sites.length){
+    h += '<h4>Where we would start</h4><ul class="asks">'+b.sites.slice(0,6).map(s=>
+      '<li><b>'+esc(s.name||'unnamed')+'</b> <span class="tiny muted">'+esc(s.city||'')+
+      (s.status?' &middot; '+esc(SITE_ST_L[s.status]):'')+(s.need?'. '+esc(s.need):'')+'</span></li>').join('')+'</ul>';
+  }
+
+  h += '<h4>What we know</h4>';
+  h += b.facts.length
+    ? '<ul class="asks">'+b.facts.map(f=>'<li><b>'+esc(f.title)+'</b>'+(f.text?'. '+esc(f.text):'')+
+        (f.srcId?' <span class="tiny muted">['+esc((srcById(a,f.srcId)||{}).publisher||'source')+']</span>':
+         ' <span class="tiny" style="color:'+C.pink+'">[no source]</span>')+'</li>').join('')+'</ul>'
+    : '<p class="muted tiny">Nothing recorded as fact yet.</p>';
+
+  if(b.infs.length){
+    h += '<h4>What we think follows</h4><ul class="asks">'+b.infs.map(f=>
+      '<li>'+esc(f.title)+(f.text?'. '+esc(f.text):'')+'</li>').join('')+'</ul>';
+  }
+
+  h += '<h4>What we are guessing</h4>';
+  h += b.hyps.length
+    ? '<ul class="asks">'+b.hyps.map(f=>'<li>'+esc(f.title)+(f.text?'. '+esc(f.text):'')+'</li>').join('')+
+      '</ul><p class="tiny muted">These are hypotheses. Nobody should say them to the client as fact.</p>'
+    : '<p class="muted tiny">Nothing flagged as a guess, which is either rigour or optimism.</p>';
+
+  if(a.strategy.questions && a.strategy.questions.length){
+    h += '<h4>Questions that would settle it</h4><ul class="asks">'+
+      a.strategy.questions.filter(q=>String(q).trim()).map(q=>'<li>'+esc(q)+'</li>').join('')+'</ul>';
+  }
+
+  h += '<h4>Who we still need</h4>';
+  h += b.gaps.length
+    ? '<p>'+esc(b.gaps.map(g=>ROLE2_L[g]).join(', '))+'. <span class="tiny muted">Core roles with nobody mapped against them.</span></p>'
+    : '<p class="tiny muted">Every core role is mapped.</p>';
+
+  if(nba.length){
+    h += '<h4>Next three actions</h4><ol class="asks">'+nba.map(n=>
+      '<li><b>'+esc(n.act)+'</b> <span class="tiny muted">'+esc(n.why)+'</span></li>').join('')+'</ol>';
+  }
+
+  h += '<div class="calcbox" style="margin-top:16px"><b>Confidence in this brief.</b> Research '+b.cover.pct+
+    '% complete for '+esc(TIER_SPEC[t].label)+'. '+b.facts.length+' verified facts, '+b.hyps.length+' hypotheses'+
+    (b.unver.length? ', '+b.unver.length+' finding'+(b.unver.length>1?'s':'')+' still unreviewed':'')+
+    '. '+(b.cover.stale? b.cover.stale+' area'+(b.cover.stale>1?'s':'')+' marked stale.':'No stale areas.')+'</div>';
+
+  h += '</div></div>';
+  return h;
+}
+function brSec(t, body){ return '<h4>'+esc(t)+'</h4><p>'+body+'</p>'; }
+
+/* ============================================================
+   27. ACCOUNT INTELLIGENCE: ACTIONS AND REGISTRATION
+
+   VIEWS and ACT are extended by assignment rather than edited in
+   place, so the existing dispatch code in 08 stays untouched and
+   removing this module removes the feature cleanly.
+   ============================================================ */
+
+VIEWS.accintel = vAccIntel;
+
+Object.assign(ACT, {
+
+  /* navigation inside the module */
+  iopen(el){ ISEL.acct = el.dataset.id; ISEL.tab = 'over'; render(); },
+  iclose(){ ISEL.acct = null; render(); },
+  itab(el){ ISEL.tab = el.dataset.t; render(); },
+
+  /* findings */
+  ifadd(el){
+    const a = iAcct(); if(!a) return;
+    a.findings.push({ id:uid('f'), area:el.dataset.area, title:'', text:'',
+      kind:'hyp', ver:'new', conf:'2', srcId:'', at:today() });
+    save(); render(true);
+  },
+  ifdel(el){
+    const a = iAcct(); if(!a) return;
+    a.findings = a.findings.filter(f=>f.id!==el.dataset.id);
+    save(); render(true);
+  },
+
+  /* sources */
+  isrcadd(){
+    const a = iAcct(); if(!a) return;
+    a.sources.push({ id:uid('src'), type:'site', publisher:'', title:'', url:'',
+      pub:'', acc:today(), note:'', q:'4' });
+    save(); render(true);
+  },
+  isrcdel(el){
+    const a = iAcct(); if(!a) return;
+    const id = el.dataset.id;
+    const used = a.findings.filter(f=>f.srcId===id).length;
+    if(used && !confirm(used+' finding'+(used>1?'s point':' points')+' at this source. Delete it anyway? Those findings become unsourced.')) return;
+    a.sources = a.sources.filter(s=>s.id!==id);
+    a.findings.forEach(f=>{ if(f.srcId===id) f.srcId=''; });
+    save(); render(true);
+  },
+
+  /* sites */
+  isadd(){
+    const a = iAcct(); if(!a) return;
+    a.sites.push({ id:uid('site'), name:'', type:'office', city:a.city||'',
+      status:'plan', owner:'own', size:'', date:'', need:'', opp:'none', conf:'2' });
+    save(); render(true);
+  },
+  isdel(el){
+    const a = iAcct(); if(!a) return;
+    a.sites = a.sites.filter(s=>s.id!==el.dataset.id);
+    a.findings.forEach(f=>{ if(f.siteId===el.dataset.id) f.siteId=''; });
+    save(); render(true);
+  },
+
+  /* people */
+  ipadd(){
+    const a = iAcct(); if(!a) return;
+    a.people.push({ id:uid('p'), name:'', title:'', fn:'', sen:'head', role:'',
+      infl:'0', auth:'0', rel:'0', eng:'0', owner:'', verAt:today().slice(0,7),
+      email:'', phone:'', linkedin:'', contactSource:'', contactStatus:'',
+      care:'', next:'', sup:'0' });
+    save(); render(true);
+  },
+  ipdel(el){
+    const a = iAcct(); if(!a) return;
+    a.people = a.people.filter(p=>p.id!==el.dataset.id);
+    save(); render(true);
+  },
+
+  /* triggers */
+  itadd(){
+    const a = iAcct(); if(!a) return;
+    a.trigs.push({ id:uid('t'), type:'site', desc:'', date:today(), expiry:'',
+      strength:'2', srcId:'', action:'', status:'open' });
+    save(); render(true);
+  },
+  itdel(el){
+    const a = iAcct(); if(!a) return;
+    a.trigs = a.trigs.filter(t=>t.id!==el.dataset.id);
+    save(); render(true);
+  },
+
+  /* simple string arrays inside the account, such as discovery questions */
+  ibadd(el){
+    const a = iAcct(); if(!a) return;
+    arrPath(ap(a, el.dataset.p)).push('');
+    save(); render(true);
+  },
+  ibdel(el){
+    const a = iAcct(); if(!a) return;
+    arrPath(ap(a, el.dataset.p)).splice(parseInt(el.dataset.i,10), 1);
+    save(); render(true);
+  },
+
+  /* journey. Gates warn, they do not block, because the person in the
+     room knows things the app does not. But the warning is specific. */
+  ijset(el){
+    const a = iAcct(); if(!a) return;
+    const to = parseInt(el.dataset.n, 10), from = num(a.jstage);
+    const s = JSTAGES[to];
+    let msg;
+    if(to > from){
+      msg = 'Move ' + a.name + ' to ' + s.nav + '?\n\nBefore leaving ' + JSTAGES[from].nav +
+            ' these should be true:\n\n' + JSTAGES[from].gate.map(g=>'  - '+g).join('\n') +
+            '\n\nWhat is the evidence? Leave blank to move anyway.';
+    } else {
+      msg = 'Move ' + a.name + ' back to ' + s.nav + '?\n\nWhy has it gone backwards?';
+    }
+    const ev = prompt(msg, '');
+    if(ev === null) return;
+    setJStage(a, to, ev);
+    save(); render(true);
+    toast(to>from ? 'Moved to <b>'+esc(s.nav)+'</b>.' : 'Moved back to <b>'+esc(s.nav)+'</b>.');
+  },
+
+  /* one click disqualification reasons */
+  idisqr(el){
+    const a = iAcct(); if(!a) return;
+    a.statusWhy = el.dataset.v;
+    save(); render(true);
+  },
+
+  /* printable brief */
+  ibrief(){
+    const a = iAcct(); if(!a) return;
+    const w = window.open('', '_blank');
+    if(!w){ toast('Your browser blocked the popup. Allow popups to open the brief.'); return; }
+    w.document.write(briefDoc(a));
+    w.document.close();
+  }
+});
+
+/* The brief opens as its own document so it prints cleanly and can be
+   saved as a PDF by the browser. No library, no server. */
+function briefDoc(a){
+  const body = iBrief(a)
+    .replace(/<div class="rowend"[\s\S]*?<\/div>/, '')
+    .replace(/<(input|select|textarea)[^>]*>/g, '')
+    .replace(/<\/(select|textarea)>/g, '');
+  return '<!doctype html><html><head><meta charset="utf-8">'+
+    '<title>'+esc(a.name)+' account brief</title><style>'+
+    'body{font:14px/1.55 -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Roboto,Helvetica,Arial,sans-serif;'+
+    'color:#30302F;max-width:760px;margin:40px auto;padding:0 24px}'+
+    'h2{font-size:26px;margin:0 0 4px}h4{font-size:12px;text-transform:uppercase;letter-spacing:.09em;'+
+    'color:#6E6E6B;margin:22px 0 6px;border-top:1px solid #E4E3E3;padding-top:14px}'+
+    'ul,ol{margin:6px 0;padding-left:20px}li{margin-bottom:5px}'+
+    '.muted,.tiny{color:#6E6E6B}.tiny{font-size:12px}'+
+    '.calcbox{background:#F4FAF8;border:1px solid #D8EAE6;border-radius:9px;padding:12px 14px;margin-top:18px}'+
+    '.card,.body{all:unset;display:block}'+
+    '@media print{body{margin:0;max-width:none}}'+
+    '</style></head><body>'+body+
+    '<p class="tiny muted" style="margin-top:30px;border-top:1px solid #E4E3E3;padding-top:12px">'+
+    'ZAMSTARS ABM OS. Prepared '+today()+'. Findings marked as hypothesis are unproven and should not be '+
+    'presented as fact.</p></body></html>';
+}
+
+/* ============================================================
+   28. DEMO RESEARCH
+
+   One fictional account researched properly, so the module opens with
+   something to look at rather than fourteen empty boxes. Attached to
+   the shipped demo only, and only when that account has no research of
+   its own, so it can never overwrite real work.
+   ============================================================ */
+function seedIntel(c){
+  if(!c || c.id!=='demo') return;
+  const a = (c.accounts||[])[0];
+  if(!a) return;
+  accIntel(a);
+  if((a.findings||[]).length || (a.sites||[]).length) return;
+
+  a.owner = 'Priya N';
+  a.jstage = 4;
+  a.jhist = [
+    { from:0, to:1, evidence:'Fits the profile on portfolio size and has a published 2030 target.', at:'2026-06-02' },
+    { from:1, to:2, evidence:'Tier 1 checklist done. Thesis agreed with sales.', at:'2026-06-24' },
+    { from:2, to:3, evidence:'Letter sent to the asset director, plus the Salford grid note.', at:'2026-07-14' },
+    { from:3, to:4, evidence:'Asset director replied asking what a survey involves.', at:'2026-08-04' }
+  ];
+  a.nextStep = 'Get the Salford survey booked before the September board paper closes';
+  a.nextBy = '2026-09-12';
+
+  a.sources = [
+    { id:'src-a', type:'filing', publisher:'Harbourline REIT', title:'Annual report 2025', url:'https://example.com/ar25', pub:'2026-03', acc:'2026-06-02', note:'', q:'5' },
+    { id:'src-b', type:'press', publisher:'Harbourline REIT', title:'Salford refurbishment announcement', url:'https://example.com/salford', pub:'2026-05', acc:'2026-06-04', note:'', q:'5' },
+    { id:'src-c', type:'news', publisher:'Property Week', title:'Northern REITs and the 2030 deadline', url:'https://example.com/pw', pub:'2026-04', acc:'2026-06-09', note:'', q:'4' },
+    { id:'src-d', type:'li',  publisher:'LinkedIn', title:'Asset director profile and posts', url:'https://example.com/li', pub:'', acc:'2026-06-11', note:'', q:'3' }
+  ];
+
+  a.research = {
+    ident:{ st:'ok',   note:'Listed REIT, four office units in the north west plus two under offer.' },
+    strat:{ st:'ok',   note:'2030 net zero target is stated in the annual report and repeated in every investor deck.' },
+    fin:{   st:'ok',   note:'Capital programme funded. Refurbishment budget approved for the current year.' },
+    prod:{  st:'part', note:'Grade A office landlord. Tenant mix is professional services.' },
+    assets:{st:'ok',   note:'Four units. Salford is the one in refurbishment and the obvious place to start.' },
+    tech:{  st:'chk',  note:'Car parks appear unmanaged. Nobody has confirmed who maintains them.' },
+    need:{  st:'ok',   note:'Tenant renewal conversations are raising charging. No provision at three of four sites.' },
+    trig:{  st:'ok',   note:'Salford refurbishment plus the 2030 target plus a renewal cycle in Q1.' },
+    comp:{  st:'part', note:'No incumbent at Salford. A regional installer quoted last year and was not appointed.' },
+    rel:{   st:'ok',   note:'Asset director replied to the letter. No prior contract.' },
+    people:{st:'part', note:'Four mapped. Procurement not identified.' },
+    proc:{  st:'none', note:'' },
+    chan:{  st:'part', note:'Asset director posts on LinkedIn about retrofit. Attends the northern property forum.' },
+    risk:{  st:'ok',   note:'No conflict. Deliverable. Worth the effort.' }
+  };
+
+  a.findings = [
+    { id:'f-1', area:'strat', title:'A 2030 net zero target is published and repeated', kind:'fact', ver:'ok', conf:'3', srcId:'src-a',
+      text:'It appears in the annual report and in every investor deck since. That makes it a commitment somebody is measured on rather than a marketing line.', at:'2026-06-02' },
+    { id:'f-2', area:'assets', title:'Salford is in refurbishment with works running to Q2 next year', kind:'fact', ver:'ok', conf:'3', srcId:'src-b',
+      text:'The only window where ducting and supply can be designed in rather than retrofitted. After it closes the cost of the same work roughly triples.', at:'2026-06-04' },
+    { id:'f-3', area:'need', title:'Three of four sites have no charging provision at all', kind:'fact', ver:'ok', conf:'3', srcId:'src-a',
+      text:'Against a published 2030 target and a tenant base that is asking at renewal.', at:'2026-06-05' },
+    { id:'f-4', area:'comp', title:'A regional installer quoted last year and was not appointed', kind:'inf', ver:'chk', conf:'2', srcId:'src-c',
+      text:'Suggests the objection is commercial model rather than need. Worth finding out what the quote said before we price anything.', at:'2026-06-09' },
+    { id:'f-5', area:'need', title:'Tenant renewals are where this becomes urgent for them', kind:'hyp', ver:'new', conf:'2', srcId:'',
+      text:'If charging is coming up in renewal conversations then the asset director has a revenue reason as well as a compliance one. Nobody has confirmed this.', at:'2026-06-11' },
+    { id:'f-6', area:'proc', title:'Capital spend above a threshold likely needs board approval', kind:'hyp', ver:'new', conf:'1', srcId:'',
+      text:'Standard for a listed REIT, but the threshold and the board calendar are unknown. This decides whether the September paper matters.', at:'2026-06-11' }
+  ];
+
+  a.sites = [
+    { id:'site-1', name:'Salford Quays', type:'office', city:'Salford', status:'refurb', owner:'own',
+      size:'420 bay car park', date:'2027-06', opp:'survey', conf:'3',
+      need:'Refurbishment is open now, so supply and ducting can be designed in. This is the site that proves the case for the other three.' },
+    { id:'site-2', name:'Deansgate Central', type:'office', city:'Manchester', status:'live', owner:'own',
+      size:'260 bays', date:'', opp:'target', conf:'2',
+      need:'Operating and full. Retrofit cost is higher, so it follows Salford rather than leading.' },
+    { id:'site-3', name:'Leeds Waterside', type:'mixed', city:'Leeds', status:'live', owner:'own',
+      size:'310 bays', date:'', opp:'target', conf:'2', need:'Tenant mix is asking at renewal.' },
+    { id:'site-4', name:'Trafford Park North', type:'ind', city:'Manchester', status:'hand', owner:'dev',
+      size:'180 bays', date:'2026-11', opp:'none', conf:'2',
+      need:'Handover in November. After that the specification is set and changing it costs somebody money.' }
+  ];
+
+  a.people = [
+    { id:'p-1', name:'Ellen Whitcombe', title:'Asset Director', fn:'Asset management', sen:'vp', role:'econ',
+      infl:'3', auth:'3', rel:'2', eng:'3', owner:'Priya N', verAt:'2026-08', sup:'0', next:'Offer the Salford survey',
+      care:'Yield per square foot and the 2030 target. Replied to the letter, which is the only real signal on this account so far.' },
+    { id:'p-2', name:'Marcus Oyelaran', title:'Head of Sustainability', fn:'ESG', sen:'head', role:'champ',
+      infl:'2', auth:'1', rel:'3', eng:'2', owner:'Priya N', verAt:'2026-08', sup:'0', next:'Send the retrofit note',
+      care:'Has to report progress against 2030. Charging is one of the few levers he controls, which makes him the natural champion.' },
+    { id:'p-3', name:'Dev Raghunathan', title:'Projects Manager, Salford', fn:'Projects', sen:'mgr', role:'proj',
+      infl:'2', auth:'1', rel:'1', eng:'1', owner:'Tom B', verAt:'2026-07', sup:'0', next:'Get on the contractor call',
+      care:'Dates and coordination. Cares whether this adds weeks to a programme he is already defending.' },
+    { id:'p-4', name:'Sarah Lindqvist', title:'Facilities Lead', fn:'Operations', sen:'head', role:'ops',
+      infl:'1', auth:'0', rel:'1', eng:'0', owner:'Tom B', verAt:'2026-07', sup:'0', next:'',
+      care:'Will live with whatever gets installed. Nobody has asked her yet, which is usually a mistake.' }
+  ];
+
+  a.trigs = [
+    { id:'tr-1', type:'refurb', desc:'Salford Quays refurbishment announced, works running to Q2 2027',
+      date:'2026-05-12', expiry:'2026-12-01', strength:'3', srcId:'src-b', status:'open',
+      action:'Get a survey booked while the design is still open' },
+    { id:'tr-2', type:'hand', desc:'Trafford Park North handover due November',
+      date:'2026-06-01', expiry:'2026-11-01', strength:'2', srcId:'src-a', status:'open',
+      action:'Reach the projects manager before the specification is frozen' },
+    { id:'tr-3', type:'engage', desc:'Asset director replied to the letter asking what a survey involves',
+      date:'2026-08-04', expiry:'2026-09-15', strength:'3', srcId:'', status:'open',
+      action:'Answer within two working days with a date, not a brochure' }
+  ];
+
+  a.strategy = {
+    objective:'A portfolio agreement covering all four sites, starting with one paid survey at Salford.',
+    thesis:'They have published a 2030 target and have no charging at three of four sites. Salford is open for refurbishment right now, which is the only moment the work is cheap. We can show them what their own car park would take before anybody signs anything.',
+    whyNow:'The Salford design closes this year and Trafford Park hands over in November. Both windows shut on their own schedule rather than ours.',
+    priority:'Salford Quays. It is the one site where the cost argument is on our side.',
+    value:'Charging revenue per bay plus a defensible line in the 2030 report. They can check both against their own numbers rather than taking ours.',
+    champion:'Marcus in sustainability. He has to report progress and this is one of the few levers he controls.',
+    access:'Direct. The asset director has already replied, so the door is open and the job now is not to waste it.',
+    proof:'The Ashcroft rollout, because it is the same shape of portfolio and the numbers came from the client rather than from us.',
+    offer:'A free grid assessment of Salford Quays, delivered as a short written report.',
+    obstacles:'Procurement is unmapped, so we do not know who signs. A regional installer quoted last year and lost, and nobody knows why.',
+    success:'Survey completed, findings presented to the asset director and one other, and a second site named.',
+    exit:'If no survey is booked by the end of October the Salford window has closed. Move to nurture and come back at Trafford Park.',
+    questions:[
+      'What did the installer quote last year, and what stopped it?',
+      'Is charging coming up in tenant renewal conversations, or are we assuming that?',
+      'What size of capital spend needs board approval, and when does the board sit?',
+      'Who signs a contract like this, and have they signed one before?'
+    ]
+  };
+}
+
+/* ============================================================
+   29. BOOT
    ============================================================ */
 (function boot(){
   const restored = load();
+  /* Research for the worked example. Only touches the shipped demo, and only
+     when that account has none of its own, so it cannot overwrite real work. */
+  try{ S.order.forEach(id=>seedIntel(S.clients[id])); }catch(e){}
   bindOnce();
   render();
   if(!restored){
     setTimeout(()=>toast('<b>ZAMSTARS ABM OS.</b> A worked example is loaded. <b>0</b> for the summary, <b>1</b> to <b>9</b> for the build stages, <b>D</b> for the dashboard, <b>P</b> for presenter notes.'),700);
   }
 })();
+
+/* Boot lives in the last source file on purpose. The whole app is one
+   script block, so function declarations hoist, but const does not. Booting
+   from the middle would render a screen whose taxonomies had not been
+   evaluated yet, and fail in the temporal dead zone. */
 
 </script>
 </body>

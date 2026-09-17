@@ -51,6 +51,19 @@ have not agreed to it.**
 | 9 | The first ninety days | Seven phases, owners, outputs and dependencies |
 | 10 | How we measure | Coverage, engagement, progression, commercial |
 
+### Account Intelligence
+
+One account at a time, researched until you could argue its case. Fourteen
+research areas whose depth changes by tier, findings that must declare whether
+they are fact, inference or guess, a source library, the ten buying roles with
+the gaps showing, five separate scores that are deliberately never added up, a
+ten stage account journey with gate conditions, a strategy canvas and a
+printable brief.
+
+The screen worth opening first is the portfolio panel titled **what is wrong
+with the book right now**. Every other ABM tool shows a client their coverage
+going up. This one shows how much of their own research cannot be defended.
+
 ### Two screens to run it
 
 **Dashboard** shows how good the list is, where each account sits, how the funnel
@@ -86,6 +99,11 @@ The person who holds the budget, the one who judges the design, the one who live
 with it daily, the one who controls the timeline, the one who signs the contract
 and the one who sells it internally do not.
 
+**Fact, inference and hypothesis as a required field.** Every finding on an
+account has to say which of the three it is. Nothing else in the module does
+more work: it is what stops a plausible guess becoming a fact by repetition
+somewhere between research and the proposal.
+
 **A persona lens on the journey.** The same nine stages seen through different
 eyes. Cells not yet written for a given person are inherited from the baseline in
 grey italic, so you can see at a glance how much thinking has actually been done.
@@ -102,8 +120,13 @@ git clone https://github.com/YOUR-USERNAME/zamstars-abm-os.git
 cd zamstars-abm-os
 npm install      # jsdom, for the tests only
 npm run build    # src/ becomes dist/index.html
-npm test         # builds, then runs 38 checks in a headless DOM
+npm test         # builds, runs 55 checks in a headless DOM, then the render check
+npm run check    # renders every screen and prints what a reader would see
 ```
+
+`npm test` proves the app works. `npm run check` shows you the words, and
+catches the three things that fail silently in string-built HTML: a leaked
+`undefined`, an entity that escaped into visible text, and unbalanced divs.
 
 ### How the source is arranged
 
@@ -116,7 +139,16 @@ src/05-store.js           state, hydration, scoring, budget allocation, persiste
 src/06-stages-early.js    stages 0 to 5
 src/07-stages-late.js     stages 6 to 10
 src/08-run-and-wiring.js  dashboard, logging, actions, event wiring
+src/09-intel-framework.js research areas, buying roles, journey stages, rules
+src/10-intel-store.js     account research model, sub scores, coverage, brief
+src/11-intel-workspace.js the Account Intelligence workspace and its tabs
+src/12-intel-actions.js   its actions, and the worked research example
+src/13-boot.js            boot
 ```
+
+Boot is deliberately last. The whole app is one script block, so function
+declarations hoist but `const` does not. Booting from the middle would render a
+screen whose taxonomies had not been evaluated yet.
 
 `build.js` concatenates them in order into one file and then checks the output.
 That is the entire toolchain, and it is deliberate. In two years this will still
